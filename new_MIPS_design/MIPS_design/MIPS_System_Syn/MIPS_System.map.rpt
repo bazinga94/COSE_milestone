@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS_System
-Wed Nov 15 15:26:54 2017
+Wed Nov 15 15:53:30 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -88,13 +88,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 15 15:26:54 2017      ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 15 15:53:30 2017      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; MIPS_System                                ;
 ; Top-level Entity Name              ; MIPS_System                                ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 3,043                                      ;
-;     Total combinational functions  ; 2,051                                      ;
+; Total logic elements               ; 3,040                                      ;
+;     Total combinational functions  ; 2,048                                      ;
 ;     Dedicated logic registers      ; 1,299                                      ;
 ; Total registers                    ; 1299                                       ;
 ; Total pins                         ; 52                                         ;
@@ -203,36 +203,36 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                  ;
-+----------------------------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                         ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                            ; Library ;
-+----------------------------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
-; ../MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ; yes             ; User Wizard-Generated File             ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ;         ;
-; ../MIPS_System/MIPS_System.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/MIPS_System.v                             ;         ;
-; ../MIPS_System/Timer/TimerCounter.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Timer/TimerCounter.v                      ;         ;
-; ../MIPS_System/MIPS_CPU/mipsparts.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/MIPS_CPU/mipsparts.v                      ;         ;
-; ../MIPS_System/MIPS_CPU/mips.v                           ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/MIPS_CPU/mips.v                           ;         ;
-; ../MIPS_System/GPIO/GPIO.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/GPIO/GPIO.v                               ;         ;
-; ../MIPS_System/Decoder/Addr_Decoder.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Decoder/Addr_Decoder.v                    ;         ;
-; ../MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ; yes             ; User Wizard-Generated File             ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ;         ;
-; altpll.tdf                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altpll.tdf                                               ;         ;
-; aglobal131.inc                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc                                           ;         ;
-; stratix_pll.inc                                          ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_pll.inc                                          ;         ;
-; stratixii_pll.inc                                        ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratixii_pll.inc                                        ;         ;
-; cycloneii_pll.inc                                        ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                        ;         ;
-; db/altpll_clkgen_altpll.v                                ; yes             ; Auto-Generated Megafunction            ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System_Syn/db/altpll_clkgen_altpll.v             ;         ;
-; altsyncram.tdf                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf                                           ;         ;
-; stratix_ram_block.inc                                    ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;         ;
-; lpm_mux.inc                                              ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc                                              ;         ;
-; lpm_decode.inc                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_decode.inc                                           ;         ;
-; a_rdenreg.inc                                            ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;         ;
-; altrom.inc                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.inc                                               ;         ;
-; altram.inc                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc                                               ;         ;
-; altdpram.inc                                             ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc                                             ;         ;
-; db/altsyncram_5ul2.tdf                                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System_Syn/db/altsyncram_5ul2.tdf                ;         ;
-; insts_data.mif                                           ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System_Syn/insts_data.mif                        ;         ;
-+----------------------------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                               ;
++----------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                         ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                                         ; Library ;
++----------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ; yes             ; User Wizard-Generated File             ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ;         ;
+; ../MIPS_System/MIPS_System.v                             ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/MIPS_System.v                             ;         ;
+; ../MIPS_System/Timer/TimerCounter.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Timer/TimerCounter.v                      ;         ;
+; ../MIPS_System/MIPS_CPU/mipsparts.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/MIPS_CPU/mipsparts.v                      ;         ;
+; ../MIPS_System/MIPS_CPU/mips.v                           ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/MIPS_CPU/mips.v                           ;         ;
+; ../MIPS_System/GPIO/GPIO.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/GPIO/GPIO.v                               ;         ;
+; ../MIPS_System/Decoder/Addr_Decoder.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Decoder/Addr_Decoder.v                    ;         ;
+; ../MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ; yes             ; User Wizard-Generated File             ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ;         ;
+; altpll.tdf                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altpll.tdf                                                                            ;         ;
+; aglobal131.inc                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc                                                                        ;         ;
+; stratix_pll.inc                                          ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_pll.inc                                                                       ;         ;
+; stratixii_pll.inc                                        ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratixii_pll.inc                                                                     ;         ;
+; cycloneii_pll.inc                                        ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                                                     ;         ;
+; db/altpll_clkgen_altpll.v                                ; yes             ; Auto-Generated Megafunction            ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System_Syn/db/altpll_clkgen_altpll.v             ;         ;
+; altsyncram.tdf                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                        ;         ;
+; stratix_ram_block.inc                                    ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                 ;         ;
+; lpm_mux.inc                                              ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                           ;         ;
+; lpm_decode.inc                                           ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                        ;         ;
+; a_rdenreg.inc                                            ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                         ;         ;
+; altrom.inc                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.inc                                                                            ;         ;
+; altram.inc                                               ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc                                                                            ;         ;
+; altdpram.inc                                             ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc                                                                          ;         ;
+; db/altsyncram_5ul2.tdf                                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System_Syn/db/altsyncram_5ul2.tdf                ;         ;
+; insts_data.mif                                           ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System_Syn/insts_data.mif                        ;         ;
++----------------------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -240,16 +240,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                           ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 3,043                                                                                           ;
+; Estimated Total logic elements              ; 3,040                                                                                           ;
 ;                                             ;                                                                                                 ;
-; Total combinational functions               ; 2051                                                                                            ;
+; Total combinational functions               ; 2048                                                                                            ;
 ; Logic element usage by number of LUT inputs ;                                                                                                 ;
-;     -- 4 input functions                    ; 1576                                                                                            ;
-;     -- 3 input functions                    ; 298                                                                                             ;
-;     -- <=2 input functions                  ; 177                                                                                             ;
+;     -- 4 input functions                    ; 1578                                                                                            ;
+;     -- 3 input functions                    ; 295                                                                                             ;
+;     -- <=2 input functions                  ; 175                                                                                             ;
 ;                                             ;                                                                                                 ;
 ; Logic elements by mode                      ;                                                                                                 ;
-;     -- normal mode                          ; 1968                                                                                            ;
+;     -- normal mode                          ; 1965                                                                                            ;
 ;     -- arithmetic mode                      ; 83                                                                                              ;
 ;                                             ;                                                                                                 ;
 ; Total registers                             ; 1299                                                                                            ;
@@ -264,7 +264,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;                                                                                                 ;
 ; Maximum fan-out node                        ; ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated|wire_pll1_clk[0] ;
 ; Maximum fan-out                             ; 1333                                                                                            ;
-; Total fan-out                               ; 12242                                                                                           ;
+; Total fan-out                               ; 12237                                                                                           ;
 ; Average fan-out                             ; 3.51                                                                                            ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 
@@ -274,12 +274,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Library Name ;
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
-; |MIPS_System                                   ; 2051 (2)          ; 1299 (1)     ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
+; |MIPS_System                                   ; 2048 (2)          ; 1299 (1)     ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
 ;    |ALTPLL_clkgen:pll0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0                                                                              ; work         ;
 ;       |altpll:altpll_component|                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component                                                      ; work         ;
 ;          |ALTPLL_clkgen_altpll:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated                  ; work         ;
 ;    |Addr_Decoder:Decoder|                      ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|Addr_Decoder:Decoder                                                                            ; work         ;
-;    |GPIO:uGPIO|                                ; 224 (44)          ; 230 (50)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO                                                                                      ; work         ;
+;    |GPIO:uGPIO|                                ; 225 (45)          ; 230 (50)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO                                                                                      ; work         ;
 ;       |pulse_gen:button1|                      ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:button1                                                                    ; work         ;
 ;       |pulse_gen:button2|                      ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:button2                                                                    ; work         ;
 ;       |pulse_gen:sw0|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw0                                                                        ; work         ;
@@ -292,20 +292,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |pulse_gen:sw7|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw7                                                                        ; work         ;
 ;       |pulse_gen:sw8|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw8                                                                        ; work         ;
 ;       |pulse_gen:sw9|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw9                                                                        ; work         ;
-;    |TimerCounter:Timer|                        ; 82 (82)           ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|TimerCounter:Timer                                                                              ; work         ;
-;    |mips:mips_cpu|                             ; 1729 (0)          ; 1003 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
-;       |controller:c|                           ; 26 (2)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
-;          |aludec:ad|                           ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad                                                            ; work         ;
-;          |maindec:md|                          ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
-;       |datapath:dp|                            ; 1703 (0)          ; 1003 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
+;    |TimerCounter:Timer|                        ; 81 (81)           ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|TimerCounter:Timer                                                                              ; work         ;
+;    |mips:mips_cpu|                             ; 1726 (0)          ; 1003 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
+;       |controller:c|                           ; 27 (3)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
+;          |aludec:ad|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad                                                            ; work         ;
+;          |maindec:md|                          ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
+;       |datapath:dp|                            ; 1699 (0)          ; 1003 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
 ;          |adder:pcadd1|                        ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|adder:pcadd1                                                          ; work         ;
 ;          |adder:pcadd2|                        ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|adder:pcadd2                                                          ; work         ;
-;          |alu:alu|                             ; 131 (131)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu                                                               ; work         ;
+;          |alu:alu|                             ; 132 (132)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu                                                               ; work         ;
 ;          |flopr:pcreg|                         ; 11 (11)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg                                                           ; work         ;
-;          |mux2:resmux|                         ; 145 (145)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux                                                           ; work         ;
-;          |mux2:srcbmux|                        ; 56 (56)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux                                                          ; work         ;
+;          |mux2:resmux|                         ; 144 (144)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux                                                           ; work         ;
+;          |mux2:srcbmux|                        ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux                                                          ; work         ;
 ;          |mux2:wrmux|                          ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wrmux                                                            ; work         ;
-;          |regfile:rf|                          ; 1333 (1333)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
+;          |regfile:rf|                          ; 1330 (1330)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
 ;    |ram2port_inst_data:Inst_Data_Mem|          ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|        ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component                                ; work         ;
 ;          |altsyncram_5ul2:auto_generated|      ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component|altsyncram_5ul2:auto_generated ; work         ;
@@ -322,14 +322,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                   ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                               ; IP Include File                                                                                         ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------+
-; Altera ; RAM: 2-PORT  ; N/A     ; N/A          ; N/A          ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ;
-; Altera ; ALTPLL       ; N/A     ; N/A          ; N/A          ; |MIPS_System|ALTPLL_clkgen:pll0               ; C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------+---------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                               ; IP Include File                                                                                                                      ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Altera ; RAM: 2-PORT  ; N/A     ; N/A          ; N/A          ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Altera_Mem_Dual_Port/ram2port_inst_data.v ;
+; Altera ; ALTPLL       ; N/A     ; N/A          ; N/A          ; |MIPS_System|ALTPLL_clkgen:pll0               ; C:/Users/user/Desktop/git_milestone/COSE_milestone/new_MIPS_design/MIPS_design/MIPS_System/Altera_PLL/ALTPLL_clkgen.v                ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -755,21 +755,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[29]  ;
-; 3:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[13]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS_System|TimerCounter:Timer|CompareR[29]              ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|LEDG_R[0]                         ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX0_R[6]                         ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX1_R[0]                         ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX2_R[4]                         ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX3_R[0]                         ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS_System|TimerCounter:Timer|CompareR[15]              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[28]  ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[18]  ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|LEDG_R[4]                         ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX0_R[1]                         ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX1_R[6]                         ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX2_R[5]                         ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX3_R[1]                         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[1]  ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[27] ;
-; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu|Mux5       ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu|Mux7       ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad|Mux1    ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf|Mux16   ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf|Mux17   ;
 ; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf|Mux63   ;
-; 7:1                ; 22 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux|y[31]  ;
+; 7:1                ; 22 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux|y[30]  ;
 ; 10:1               ; 7 bits    ; 42 LEs        ; 28 LEs               ; 14 LEs                 ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux|y[9]   ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux|y[2]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
@@ -1690,7 +1690,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:13     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -1700,18 +1700,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed Nov 15 15:26:38 2017
+    Info: Processing started: Wed Nov 15 15:53:15 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS_System -c MIPS_System
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/altera_mem_dual_port/ram2port_inst_data.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_mem_dual_port/ram2port_inst_data.v
     Info (12023): Found entity 1: ram2port_inst_data
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/mips_system_tb.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_system_tb.v
     Info (12023): Found entity 1: MIPS_System_tb
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/mips_system.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_system.v
     Info (12023): Found entity 1: MIPS_System
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/timer/timercounter.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/timer/timercounter.v
     Info (12023): Found entity 1: TimerCounter
-Info (12021): Found 9 design units, including 9 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/mips_cpu/mipsparts.v
+Info (12021): Found 9 design units, including 9 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_cpu/mipsparts.v
     Info (12023): Found entity 1: regfile
     Info (12023): Found entity 2: alu
     Info (12023): Found entity 3: adder
@@ -1721,19 +1721,19 @@ Info (12021): Found 9 design units, including 9 entities, in source file /users/
     Info (12023): Found entity 7: flopr
     Info (12023): Found entity 8: flopenr
     Info (12023): Found entity 9: mux2
-Info (12021): Found 5 design units, including 5 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/mips_cpu/mips.v
+Info (12021): Found 5 design units, including 5 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_cpu/mips.v
     Info (12023): Found entity 1: mips
     Info (12023): Found entity 2: controller
     Info (12023): Found entity 3: maindec
     Info (12023): Found entity 4: aludec
     Info (12023): Found entity 5: datapath
 Warning (12019): Can't analyze file -- file ../MIPS_System/MIPS_CPU/delay.v is missing
-Info (12021): Found 2 design units, including 2 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/gpio/gpio.v
+Info (12021): Found 2 design units, including 2 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/gpio/gpio.v
     Info (12023): Found entity 1: GPIO
     Info (12023): Found entity 2: pulse_gen
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/decoder/addr_decoder.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/decoder/addr_decoder.v
     Info (12023): Found entity 1: Addr_Decoder
-Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/new_mips_design/mips_design/mips_system/altera_pll/altpll_clkgen.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_pll/altpll_clkgen.v
     Info (12023): Found entity 1: ALTPLL_clkgen
 Info (12127): Elaborating entity "MIPS_System" for the top level hierarchy
 Info (12128): Elaborating entity "ALTPLL_clkgen" for hierarchy "ALTPLL_clkgen:pll0"
@@ -1855,7 +1855,6 @@ Info (12133): Instantiated megafunction "ram2port_inst_data:Inst_Data_Mem|altsyn
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5ul2.tdf
     Info (12023): Found entity 1: altsyncram_5ul2
 Info (12128): Elaborating entity "altsyncram_5ul2" for hierarchy "ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component|altsyncram_5ul2:auto_generated"
-Critical Warning (127005): Memory depth (2048) in the design file differs from memory depth (512) in the Memory Initialization File "C:/Users/user/Desktop/new_MIPS_design/MIPS_design/MIPS_System_Syn/insts_data.mif" -- setting initial value for remaining addresses to 0
 Info (12128): Elaborating entity "Addr_Decoder" for hierarchy "Addr_Decoder:Decoder"
 Info (12128): Elaborating entity "TimerCounter" for hierarchy "TimerCounter:Timer"
 Info (12128): Elaborating entity "GPIO" for hierarchy "GPIO:uGPIO"
@@ -1864,16 +1863,16 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 79 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3176 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3173 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 38 output pins
-    Info (21061): Implemented 3091 logic cells
+    Info (21061): Implemented 3088 logic cells
     Info (21064): Implemented 32 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 539 megabytes
-    Info: Processing ended: Wed Nov 15 15:26:55 2017
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 551 megabytes
+    Info: Processing ended: Wed Nov 15 15:53:30 2017
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:15
 
 
