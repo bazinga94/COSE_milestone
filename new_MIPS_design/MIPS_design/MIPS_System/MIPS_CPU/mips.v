@@ -215,7 +215,7 @@ module datapath(input         clk, reset,
   regfile rf(
     .clk     (clk),
     .we      (regwrite),
-    .ra1     (instr[25:21]),
+    .ra1     (ra1_mux_result),
     .ra2     (instr[20:16]),
     .wa      (wa_mux_result),
     .wd      (wd_mux_result),
@@ -271,7 +271,7 @@ module datapath(input         clk, reset,
     .s  (jump),
     .y  (wa_mux_result));
 	 
-	 mux2 #(32) ra1_mux(
+	 mux2 #(5) ra1_mux(
     .d0 (instr[25:21]),
     .d1 (5'b11111),
     .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & instr[3]),
