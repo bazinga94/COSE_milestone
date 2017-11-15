@@ -74,6 +74,7 @@ module controller(input  [5:0] op, funct,
 
   maindec md(
     .op       (op),
+	 .funct	  (funct),   //add funct
     .signext  (signext),
     .shiftl16 (shiftl16),
     .memtoreg (memtoreg),
@@ -95,7 +96,7 @@ module controller(input  [5:0] op, funct,
 endmodule
 
 
-module maindec(input  [5:0] op,
+module maindec(input  [5:0] op, funct,  //add funct
                output       signext,
                output       shiftl16,
                output       memtoreg, memwrite,
@@ -111,7 +112,12 @@ module maindec(input  [5:0] op,
 
   always @(*)
     case(op)
-      6'b000000: controls <= #`mydelay 11'b00110000011; // Rtype
+      6'b000000:
+		if (funct == 6'b001000) begin
+         controls <= #`mydelay 11'b00000000100;// JR
+      end else begin
+			controls <= #`mydelay 11'b00110000011; // Rtype
+      end
       6'b100011: controls <= #`mydelay 11'b10101001000; // LW
       6'b101011: controls <= #`mydelay 11'b10001010000; // SW
       6'b000100: controls <= #`mydelay 11'b10000100001; // BEQ
@@ -121,8 +127,11 @@ module maindec(input  [5:0] op,
       6'b001101: controls <= #`mydelay 11'b00101000010; // ORI
       6'b001111: controls <= #`mydelay 11'b01101000000; // LUI
       6'b000010: controls <= #`mydelay 11'b00000000100; // J
+		6'b000011: controls <= #`mydelay 11'b00100000100; // JAL
+		//6'b000000: controls <= #`mydelay 11'b00000000100; // JR 000000 already in case
       default:   controls <= #`mydelay 11'bxxxxxxxxxxx; // ???
     endcase
+	 
 
 endmodule
 
@@ -142,7 +151,7 @@ module aludec(input      [5:0] funct,
           6'b100011: alucontrol <= #`mydelay 3'b110; // SUB, SUBU: only difference is exception
           6'b100100: alucontrol <= #`mydelay 3'b000; // AND
           6'b100101: alucontrol <= #`mydelay 3'b001; // OR
-          //6'b101011: alucontrol <= #`mydelay 3'b111; // SLTU!!!
+          6'b101011: alucontrol <= #`mydelay 3'b111; // SLTU!!!
           default:   alucontrol <= #`mydelay 3'bxxx; // ???
         endcase
     endcase
@@ -197,7 +206,7 @@ module datapath(input         clk, reset,
     .y   (pcnextbr));
 
   mux2 #(32) pcmux(
-    .d0   (pcnextbr),
+    .d0   (jr_pc_result),
     .d1   ({pcplus4[31:28], instr[25:0], 2'b00}),
     .s    (jump),
     .y    (pcnext));
@@ -208,8 +217,8 @@ module datapath(input         clk, reset,
     .we      (regwrite),
     .ra1     (instr[25:21]),
     .ra2     (instr[20:16]),
-    .wa      (writereg),
-    .wd      (result),
+    .wa      (wa_mux_result),
+    .wd      (wd_mux_result),
     .rd1     (srca),
     .rd2     (writedata));
 
@@ -249,4 +258,28 @@ module datapath(input         clk, reset,
     .result  (aluout),
     .zero    (zero));
     
+	 
+	 mux2 #(32) wd_mux(
+    .d0 (result),
+    .d1 (pcplus4),
+    .s  (jump),
+    .y  (wd_mux_result));
+	 
+	 mux2 #(5) wa_mux(
+    .d0 (writereg),
+    .d1 (5'b11111),
+    .s  (jump),
+    .y  (wa_mux_result));
+	 
+	 mux2 #(32) ra1_mux(
+    .d0 (instr[25:21]),
+    .d1 (5'b11111),
+    .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & instr[3]),
+    .y  (ra1_mux_result));
+	 
+	 mux2 #(32) jr_pc_mux(
+    .d0 (pcnextbr),
+    .d1 (srca),
+    .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & instr[3]),
+    .y  (jr_pc_result));
 endmodule
