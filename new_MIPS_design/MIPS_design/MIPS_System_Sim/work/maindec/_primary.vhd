@@ -3,6 +3,7 @@ use verilog.vl_types.all;
 entity maindec is
     port(
         op              : in     vl_logic_vector(5 downto 0);
+        funct           : in     vl_logic_vector(5 downto 0);
         signext         : out    vl_logic;
         shiftl16        : out    vl_logic;
         memtoreg        : out    vl_logic;
