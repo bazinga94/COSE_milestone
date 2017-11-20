@@ -96,7 +96,7 @@ module controller(input  [5:0] op, funct,
 endmodule
 
 
-module maindec(input  [5:0] op, funct,  //add funct
+module maindec(input  [5:0] op, funct,  //add funct to Distinguish jr
                output       signext,
                output       shiftl16,
                output       memtoreg, memwrite,
@@ -258,28 +258,28 @@ module datapath(input         clk, reset,
     .result  (aluout),
     .zero    (zero));
     
-	 
+	 //@@@@@@@@@@@@add new mux
 	 mux2 #(32) wd_mux(
     .d0 (result),
     .d1 (pcplus4),
     .s  (jump),
-    .y  (wd_mux_result)); //
+    .y  (wd_mux_result)); //before wd
 	 
 	 mux2 #(5) wa_mux(
     .d0 (writereg),
     .d1 (5'b11111),
     .s  (jump),
-    .y  (wa_mux_result));  
+    .y  (wa_mux_result));  //before wd
 	 
 	 mux2 #(5) ra1_mux(
     .d0 (instr[20:16]),
     .d1 (5'b11111),
     .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]),  //~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]
-    .y  (ra1_mux_result));
+    .y  (ra1_mux_result));  //after ra2
 	 
 	 mux2 #(32) jr_pc_mux(
     .d0 ({pcplus4[31:28], instr[25:0], 2'b00}),
     .d1 (writedata),
     .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]),
-    .y  (jr_pc_result));  //
+    .y  (jr_pc_result));  //after rd2
 endmodule
