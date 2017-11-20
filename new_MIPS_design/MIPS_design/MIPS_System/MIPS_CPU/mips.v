@@ -60,7 +60,7 @@ module mips(input         clk, reset,
     .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire 
 	 // ###### jongho lee: End #######
     .aluout     (memaddr), 
-    .writedata  (memwritedata),
+    .ID_EX_rd2_out  (memwritedata),  //writedata change
     .readdata   (memreaddata));
 
 endmodule
@@ -175,7 +175,7 @@ module datapath(input         clk, reset,
                 output [31:0] pc,
                 input  [31:0] instr,
 					 output [31:0] IF_ID_inst_out,    //add f.f wire
-                output [31:0] aluout, writedata,
+                output [31:0] aluout, ID_EX_rd2_out,  //add f.f(wirtedata) wire
                 input  [31:0] readdata);
 
   wire [4:0]  writereg, wa_mux_result;
@@ -187,6 +187,7 @@ module datapath(input         clk, reset,
   
   // ###### jongho lee: Start ####### 
   wire [31:0] IF_ID_pcplus4_out;    //add f.f wire
+  //wire [31:0] ID_EX_rd2_out;
   // ###### jongho lee: End #######
   
   // next PC logic
@@ -202,7 +203,7 @@ module datapath(input         clk, reset,
     .y (pcplus4));      // insult IF_ID_pcplus4_out
 
   sl2 immsh(
-    .a (signimm),
+    .a (ID_EX_signimm_out),  //f.f
     .y (signimmsh));
 				 
   adder pcadd2(
@@ -257,19 +258,18 @@ module datapath(input         clk, reset,
 
   // ALU logic
   mux2 #(32) srcbmux(
-    .d0 (writedata),
-    .d1 (shiftedimm[31:0]),
+    .d0 (ID_EX_rd2_out),
+    .d1 (ID_EX_shiftedimm_out[31:0]),
     .s  (alusrc),
     .y  (srcb));
 
   alu alu(
-    .a       (srca),
+    .a       (ID_EX_rd1_out),
     .b       (srcb),
     .alucont (alucontrol),
     .result  (aluout),
     .zero    (zero));
     
-	 // ###### Jongho Lee: Start #######
 	 mux2 #(32) wd_mux(
     .d0 (result),
     .d1 (IF_ID_pcplus4_out),
@@ -290,10 +290,11 @@ module datapath(input         clk, reset,
 	 
 	 mux2 #(32) jr_pc_mux(
     .d0 ({IF_ID_pcplus4_out[31:28], IF_ID_inst_out[25:0], 2'b00}),
-    .d1 (writedata),
+    .d1 (ID_EX_rd2_out),
     .s  (~IF_ID_inst_out[31] & ~IF_ID_inst_out[30] & ~IF_ID_inst_out[29] & ~IF_ID_inst_out[28] & ~IF_ID_inst_out[27] & ~IF_ID_inst_out[26] & ~IF_ID_inst_out[0] & ~IF_ID_inst_out[1] & ~IF_ID_inst_out[2] & IF_ID_inst_out[3] & ~IF_ID_inst_out[4] & ~IF_ID_inst_out[5]),
     .y  (jr_pc_result));  //after rd2
 	 
+	 // ###### Jongho Lee: Start #######
 	 flopenr #(32) IF_ID_inst(
     .clk   (clk),
     .reset (reset),
@@ -307,4 +308,110 @@ module datapath(input         clk, reset,
 	 .en    (~stall),
 	 .d     (pcplus4),
 	 .q     (IF_ID_pcplus4_out));
+	 
+	 wire [31:0] ID_EX_pcplus4_out;
+    flopr #(32) ID_EX_pcplus4 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (IF_ID_pcplus4_out), 
+	 .q     (ID_EX_pcplus4_out));	
+	 
+	 wire [31:0] ID_EX_signimm_out;
+	 flopr #(32) ID_EX_signimm (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (signimm[31:0]), 
+	 .q     (ID_EX_signimm_out));
+	 
+	 flopr #(32) ID_EX_inst_1 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (IF_ID_inst_out[20:16]), 
+	 .q     (ID_EX_inst_1_out));
+	 
+	 flopr #(32) ID_EX_inst_2 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (IF_ID_inst_out[15:11]), 
+	 .q     (ID_EX_inst_2_out));
+	 
+	 wire [31:0] ID_EX_shiftedimm_out; 
+	 flopr #(32) ID_EX_shiftedimm (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (shiftedimm[31:0]), 
+	 .q     (ID_EX_shiftedimm_out));
+	 
+	 flopr #(1) ID_EX_C_signext (   //control start
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (signext), 
+	 .q     (ID_EX_C_signext_out));
+	 
+	 flopr #(1) ID_EX_C_shiftl16 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (shiftl16), 
+	 .q     (ID_EX_C_shiftl16_out));
+	 
+	 flopr #(1) ID_EX_C_regwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (regwrite), 
+	 .q     (ID_EX_C_regwrite_out));
+	 
+	 flopr #(1) ID_EX_C_regdst (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (regdst), 
+	 .q     (ID_EX_C_regdst_out));
+	 
+	 flopr #(1) ID_EX_C_alusrc (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (alusrc), 
+	 .q     (ID_EX_C_alusrc_out));
+	 
+	 flopr #(1) ID_EX_C_branch (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (branch), 
+	 .q     (ID_EX_C_branch_out));
+	 
+	 flopr #(1) ID_EX_C_memwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (memwrite), 
+	 .q     (ID_EX_C_memwrite_out));
+	 
+	 flopr #(1) ID_EX_C_memtoreg (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (memtoreg), 
+	 .q     (ID_EX_C_memtoreg_out));
+	 
+	 flopr #(1) ID_EX_C_jump (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (jump), 
+	 .q     (ID_EX_C_jump_out));
+	 
+	 //flopr #(2) ID_EX_C_aluop (
+	 //.clk   (clk), 
+	 //.reset (reset), 
+	 //.d     (aluop[1:0]), 
+	 //.q     (ID_EX_C_aluop_out));  //control end
+	 
+	 flopr #(32) ID_EX_rd1 (    //read data start
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (srca), 
+	 .q     (ID_EX_rd1_out));
+	 
+	 flopr #(32) ID_EX_rd2 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (writedata), 
+	 .q     (ID_EX_rd2_out));    //read data end
+	 // ###### Jongho Lee: End #######
 endmodule
