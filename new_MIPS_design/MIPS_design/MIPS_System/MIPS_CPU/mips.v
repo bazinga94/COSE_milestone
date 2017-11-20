@@ -20,11 +20,14 @@ module mips(input         clk, reset,
   wire        pcsrc, zero;
   wire        alusrc, regdst, regwrite, jump;
   wire [2:0]  alucontrol;
+  wire [31:0] IF_ID_inst_out;  //add f.f wire
 
   // Instantiate Controller
   controller c(
-    .op         (instr[31:26]), 
-		.funct      (instr[5:0]), 
+  // ###### jongho lee: Start #######
+      .op         (IF_ID_inst_out[31:26]), 
+		.funct      (IF_ID_inst_out[5:0]), 
+  // ###### jongho lee: End #######
 		.zero       (zero),
 		.signext    (signext),
 		.shiftl16   (shiftl16),
@@ -52,7 +55,10 @@ module mips(input         clk, reset,
     .alucontrol (alucontrol),
     .zero       (zero),
     .pc         (pc),
-    .instr      (instr),
+	 .instr		 (instr),
+	 // ###### jongho lee: Start #######
+    .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire 
+	 // ###### jongho lee: End #######
     .aluout     (memaddr), 
     .writedata  (memwritedata),
     .readdata   (memreaddata));
@@ -168,6 +174,7 @@ module datapath(input         clk, reset,
                 output        zero,
                 output [31:0] pc,
                 input  [31:0] instr,
+					 output [31:0] IF_ID_inst_out,    //add f.f wire
                 output [31:0] aluout, writedata,
                 input  [31:0] readdata);
 
@@ -177,7 +184,11 @@ module datapath(input         clk, reset,
   wire [31:0] srca, srcb;
   wire [31:0] result, jr_pc_result, ra1_mux_result, wd_mux_result;
   wire        shift;
-
+  
+  // ###### jongho lee: Start ####### 
+  wire [31:0] IF_ID_pcplus4_out;    //add f.f wire
+  // ###### jongho lee: End #######
+  
   // next PC logic
   flopr #(32) pcreg(
     .clk   (clk),
@@ -188,19 +199,19 @@ module datapath(input         clk, reset,
   adder pcadd1(
     .a (pc),
     .b (32'b100),
-    .y (pcplus4));
+    .y (pcplus4));      // insult IF_ID_pcplus4_out
 
   sl2 immsh(
     .a (signimm),
     .y (signimmsh));
 				 
   adder pcadd2(
-    .a (pcplus4),
+    .a (IF_ID_pcplus4_out),
     .b (signimmsh),
     .y (pcbranch));
 
   mux2 #(32) pcbrmux(
-    .d0  (pcplus4),
+    .d0  (IF_ID_pcplus4_out),
     .d1  (pcbranch),
     .s   (pcsrc),
     .y   (pcnextbr));
@@ -215,7 +226,7 @@ module datapath(input         clk, reset,
   regfile rf(
     .clk     (clk),
     .we      (regwrite),
-    .ra1     (instr[25:21]),
+    .ra1     (IF_ID_inst_out[25:21]),
     .ra2     (ra1_mux_result),
     .wa      (wa_mux_result),
     .wd      (wd_mux_result),
@@ -223,8 +234,8 @@ module datapath(input         clk, reset,
     .rd2     (writedata));
 
   mux2 #(5) wrmux(
-    .d0  (instr[20:16]),
-    .d1  (instr[15:11]),
+    .d0  (IF_ID_inst_out[20:16]),
+    .d1  (IF_ID_inst_out[15:11]),
     .s   (regdst),
     .y   (writereg));
 
@@ -235,7 +246,7 @@ module datapath(input         clk, reset,
     .y  (result));
 
   sign_zero_ext sze(
-    .a       (instr[15:0]),
+    .a       (IF_ID_inst_out[15:0]),
     .signext (signext),
     .y       (signimm[31:0]));
 
@@ -258,10 +269,10 @@ module datapath(input         clk, reset,
     .result  (aluout),
     .zero    (zero));
     
-	 //@@@@@@@@@@@@add new mux
+	 // ###### Jongho Lee: Start #######
 	 mux2 #(32) wd_mux(
     .d0 (result),
-    .d1 (pcplus4),
+    .d1 (IF_ID_pcplus4_out),
     .s  (jump),
     .y  (wd_mux_result)); //before wd
 	 
@@ -272,14 +283,28 @@ module datapath(input         clk, reset,
     .y  (wa_mux_result));  //before wd
 	 
 	 mux2 #(5) ra1_mux(
-    .d0 (instr[20:16]),
+    .d0 (IF_ID_inst_out[20:16]),
     .d1 (5'b11111),
-    .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]),  //~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]
+    .s  (~IF_ID_inst_out[31] & ~IF_ID_inst_out[30] & ~IF_ID_inst_out[29] & ~IF_ID_inst_out[28] & ~IF_ID_inst_out[27] & ~IF_ID_inst_out[26] & ~IF_ID_inst_out[0] & ~IF_ID_inst_out[1] & ~IF_ID_inst_out[2] & IF_ID_inst_out[3] & ~IF_ID_inst_out[4] & ~IF_ID_inst_out[5]),  //~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]
     .y  (ra1_mux_result));  //after ra2
 	 
 	 mux2 #(32) jr_pc_mux(
-    .d0 ({pcplus4[31:28], instr[25:0], 2'b00}),
+    .d0 ({IF_ID_pcplus4_out[31:28], IF_ID_inst_out[25:0], 2'b00}),
     .d1 (writedata),
-    .s  (~instr[31] & ~instr[30] & ~instr[29] & ~instr[28] & ~instr[27] & ~instr[26] & ~instr[0] & ~instr[1] & ~instr[2] & instr[3] & ~instr[4] & ~instr[5]),
+    .s  (~IF_ID_inst_out[31] & ~IF_ID_inst_out[30] & ~IF_ID_inst_out[29] & ~IF_ID_inst_out[28] & ~IF_ID_inst_out[27] & ~IF_ID_inst_out[26] & ~IF_ID_inst_out[0] & ~IF_ID_inst_out[1] & ~IF_ID_inst_out[2] & IF_ID_inst_out[3] & ~IF_ID_inst_out[4] & ~IF_ID_inst_out[5]),
     .y  (jr_pc_result));  //after rd2
+	 
+	 flopenr #(32) IF_ID_inst(
+    .clk   (clk),
+    .reset (reset),
+	 .en	  (~stall),
+    .d     (instr[31:0]),
+    .q     (IF_ID_inst_out));
+	 
+	 flopenr #(32) IF_ID_pcplus4 (
+	 .clk   (clk), 
+	 .reset (reset),
+	 .en    (~stall),
+	 .d     (pcplus4),
+	 .q     (IF_ID_pcplus4_out));
 endmodule
