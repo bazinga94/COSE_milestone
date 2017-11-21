@@ -53,12 +53,12 @@ module mips(input         clk, reset,
     .regwrite   (regwrite),
     .jump       (jump),
     .alucontrol (alucontrol),
-    .zero       (zero),
+    .EX_MEM_alu_zero_out       (zero),
     .pc         (pc),
 	 .instr		 (instr),
     .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire  //why error?????
-    .aluout     (memaddr), 
-    .ID_EX_rd2_out  (memwritedata),  //writedata change
+    .EX_MEM_alu_out     (memaddr), 
+    .EX_MEM_rd2_out  (memwritedata),  //writedata change
     .readdata   (memreaddata));
 
 endmodule
@@ -181,11 +181,11 @@ module datapath(input         clk, reset,
                 input         alusrc, regdst,
                 input         regwrite, jump,
                 input  [2:0]  alucontrol,
-                output        zero,
+                output        EX_MEM_alu_zero_out,  //add EX_MEM f.f
                 output [31:0] pc,
                 input  [31:0] instr,
 					 output [31:0] IF_ID_inst_out,    //add f.f wire
-                output [31:0] aluout, ID_EX_rd2_out,  //add f.f(wirtedata) wire
+                output [31:0] EX_MEM_alu_out, EX_MEM_rd2_out,  //add f.f(wirtedata) wire
                 input  [31:0] readdata);
 
   wire [4:0]  writereg, wa_mux_result;
@@ -223,7 +223,7 @@ module datapath(input         clk, reset,
 
   mux2 #(32) pcbrmux(
     .d0  (IF_ID_pcplus4_out),
-    .d1  (pcbranch),
+    .d1  (EX_MEM_pcadd2_out),
     .s   (pcsrc),
     .y   (pcnextbr));
 
@@ -251,7 +251,7 @@ module datapath(input         clk, reset,
     .y   (writereg));
 
   mux2 #(32) resmux(
-    .d0 (aluout),
+    .d0 (EX_MEM_alu_out),
     .d1 (readdata),
     .s  (memtoreg),
     .y  (result));
@@ -287,7 +287,7 @@ module datapath(input         clk, reset,
     .y  (wd_mux_result)); //before wd
 	 
 	 mux2 #(5) wa_mux(
-    .d0 (writereg),
+    .d0 (EX_MEM_wrmux_out),
     .d1 (5'b11111),
     .s  (jump),
     .y  (wa_mux_result));  //before wd
@@ -423,5 +423,59 @@ module datapath(input         clk, reset,
 	 .reset (reset), 
 	 .d     (writedata), 
 	 .q     (ID_EX_rd2_out));    //read data end
+	 
+	 flopr #(32) EX_MEM_pcadd2 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (pcbranch), 
+	 .q     (EX_MEM_pcadd2_out));
+	 
+	 flopr #(32) EX_MEM_alu (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (aluout), 
+	 .q     (EX_MEM_alu_out));
+	 
+	 flopr #(1) EX_MEM_alu_zero (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (zero), 
+	 .q     (EX_MEM_alu_zero_out));
+	 
+	 flopr #(32) EX_MEM_rd2 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_rd2_out), 
+	 .q     (EX_MEM_rd2_out));
+	 
+	 flopr #(32) EX_MEM_wrmux (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (writereg), 
+	 .q     (EX_MEM_wrmux_out));
+	 
+	 flopr #(1) EX_MEM_C_regwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_C_regwrite_out), 
+	 .q     (EX_MEM_C_regwrite_out));
+	 
+	 flopr #(1) EX_MEM_C_memtoreg (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_C_memtoreg_out), 
+	 .q     (EX_MEM_C_memtoreg_out));
+	 
+	 flopr #(1) EX_MEM_C_branch (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_C_branch_out), 
+	 .q     (EX_MEM_C_branch_out));
+	 
+	 flopr #(1) EX_MEM_C_memwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_C_memwrite_out), 
+	 .q     (EX_MEM_C_memwrite_out));
 	 // ###### Jongho Lee: End #######
 endmodule
