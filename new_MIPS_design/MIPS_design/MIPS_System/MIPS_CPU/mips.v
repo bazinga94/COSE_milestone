@@ -91,9 +91,21 @@ module controller(input  [5:0] op, funct,
     .aluop    (aluop));
 
   aludec ad( 
-    .funct      (funct),
-    .aluop      (aluop), 
+    .funct      (ID_EX_inst_3_out),
+    .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
+	 
+  flopr #(2) ID_EX_C_aluop (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (aluop[1:0]), 
+	 .q     (ID_EX_C_aluop_out));  //control aluop f.f add
+	 
+  flopr #(32) ID_EX_inst_3 (
+    .clk   (clk), 
+	 .reset (reset), 
+	 .d     (funct), 
+	 .q     (ID_EX_inst_3_out)); 
 
   assign pcsrc = op[0] ? (branch & ~zero) : (branch & zero); //bne!!!!!! beq -> op[0]=0, bne -> op[0]=1
   
@@ -205,7 +217,7 @@ module datapath(input         clk, reset,
     .y (signimmsh));
 				 
   adder pcadd2(
-    .a (IF_ID_pcplus4_out),
+    .a (ID_EX_pcplus4_out),  // after ID_EX f.f
     .b (signimmsh),
     .y (pcbranch));
 
@@ -235,7 +247,7 @@ module datapath(input         clk, reset,
   mux2 #(5) wrmux(
     .d0  (ID_EX_inst_1_out),
     .d1  (ID_EX_inst_2_out),
-    .s   (regdst),
+    .s   (ID_EX_C_regdst_out),
     .y   (writereg));
 
   mux2 #(32) resmux(
@@ -250,15 +262,15 @@ module datapath(input         clk, reset,
     .y       (signimm[31:0]));
 
   shift_left_16 sl16(
-    .a         (signimm[31:0]),
+    .a         (ID_EX_signimm_out),
     .shiftl16  (shiftl16),
     .y         (shiftedimm[31:0]));
 
   // ALU logic
   mux2 #(32) srcbmux(
     .d0 (ID_EX_rd2_out),
-    .d1 (ID_EX_shiftedimm_out[31:0]),
-    .s  (alusrc),
+    .d1 (shiftedimm[31:0]),
+    .s  (ID_EX_C_alusrc_out),    //after ID_EX f.f
     .y  (srcb));
 
   alu alu(
@@ -333,12 +345,12 @@ module datapath(input         clk, reset,
 	 .d     (IF_ID_inst_out[15:11]), 
 	 .q     (ID_EX_inst_2_out));
 	 
-	 wire [31:0] ID_EX_shiftedimm_out; 
-	 flopr #(32) ID_EX_shiftedimm (
-	 .clk   (clk), 
-	 .reset (reset), 
-	 .d     (shiftedimm[31:0]), 
-	 .q     (ID_EX_shiftedimm_out));
+	 //wire [31:0] ID_EX_shiftedimm_out; 
+	 //flopr #(32) ID_EX_shiftedimm (
+	 //.clk   (clk), 
+	 //.reset (reset), 
+	 //.d     (shiftedimm[31:0]), 
+	 //.q     (ID_EX_shiftedimm_out));
 	 
 	 flopr #(1) ID_EX_C_signext (   //control start
 	 .clk   (clk), 
