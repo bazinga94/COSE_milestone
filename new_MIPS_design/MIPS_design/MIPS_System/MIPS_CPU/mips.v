@@ -26,7 +26,7 @@ module mips(input         clk, reset,
   controller c(
   // ###### jongho lee: Start #######
       .op         (IF_ID_inst_out[31:26]), 
-		.funct      (IF_ID_inst_out[5:0]), 
+		.funct      (IF_ID_inst_out[5:0]),//errror!!
   // ###### jongho lee: End #######
 		.zero       (zero),
 		.signext    (signext),
@@ -56,9 +56,7 @@ module mips(input         clk, reset,
     .zero       (zero),
     .pc         (pc),
 	 .instr		 (instr),
-	 // ###### jongho lee: Start #######
-    .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire 
-	 // ###### jongho lee: End #######
+    .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire  //why error?????
     .aluout     (memaddr), 
     .ID_EX_rd2_out  (memwritedata),  //writedata change
     .readdata   (memreaddata));
@@ -235,8 +233,8 @@ module datapath(input         clk, reset,
     .rd2     (writedata));
 
   mux2 #(5) wrmux(
-    .d0  (IF_ID_inst_out[20:16]),
-    .d1  (IF_ID_inst_out[15:11]),
+    .d0  (ID_EX_inst_1_out),
+    .d1  (ID_EX_inst_2_out),
     .s   (regdst),
     .y   (writereg));
 

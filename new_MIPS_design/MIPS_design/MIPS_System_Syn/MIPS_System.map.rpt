@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS_System
-Mon Nov 20 22:02:45 2017
+Tue Nov 21 00:51:27 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -100,12 +100,13 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  92. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:ra1_mux"
  93. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"
  94. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|alu:alu"
- 95. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|regfile:rf"
- 96. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
- 97. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
- 98. Port Connectivity Checks: "mips:mips_cpu"
- 99. Elapsed Time Per Partition
-100. Analysis & Synthesis Messages
+ 95. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wrmux"
+ 96. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|regfile:rf"
+ 97. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
+ 98. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
+ 99. Port Connectivity Checks: "mips:mips_cpu"
+100. Elapsed Time Per Partition
+101. Analysis & Synthesis Messages
 
 
 
@@ -131,15 +132,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 20 22:02:45 2017      ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 21 00:51:27 2017      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; MIPS_System                                ;
 ; Top-level Entity Name              ; MIPS_System                                ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 477                                        ;
-;     Total combinational functions  ; 429                                        ;
-;     Dedicated logic registers      ; 194                                        ;
-; Total registers                    ; 194                                        ;
+; Total logic elements               ; 377                                        ;
+;     Total combinational functions  ; 327                                        ;
+;     Dedicated logic registers      ; 167                                        ;
+; Total registers                    ; 167                                        ;
 ; Total pins                         ; 52                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 65,536                                     ;
@@ -283,20 +284,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                           ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 477                                                                                             ;
+; Estimated Total logic elements              ; 377                                                                                             ;
 ;                                             ;                                                                                                 ;
-; Total combinational functions               ; 429                                                                                             ;
+; Total combinational functions               ; 327                                                                                             ;
 ; Logic element usage by number of LUT inputs ;                                                                                                 ;
-;     -- 4 input functions                    ; 250                                                                                             ;
-;     -- 3 input functions                    ; 104                                                                                             ;
-;     -- <=2 input functions                  ; 75                                                                                              ;
+;     -- 4 input functions                    ; 156                                                                                             ;
+;     -- 3 input functions                    ; 92                                                                                              ;
+;     -- <=2 input functions                  ; 79                                                                                              ;
 ;                                             ;                                                                                                 ;
 ; Logic elements by mode                      ;                                                                                                 ;
-;     -- normal mode                          ; 346                                                                                             ;
+;     -- normal mode                          ; 244                                                                                             ;
 ;     -- arithmetic mode                      ; 83                                                                                              ;
 ;                                             ;                                                                                                 ;
-; Total registers                             ; 194                                                                                             ;
-;     -- Dedicated logic registers            ; 194                                                                                             ;
+; Total registers                             ; 167                                                                                             ;
+;     -- Dedicated logic registers            ; 167                                                                                             ;
 ;     -- I/O registers                        ; 0                                                                                               ;
 ;                                             ;                                                                                                 ;
 ; I/O pins                                    ; 52                                                                                              ;
@@ -306,9 +307,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1                                                                                               ;
 ;                                             ;                                                                                                 ;
 ; Maximum fan-out node                        ; ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 228                                                                                             ;
-; Total fan-out                               ; 2924                                                                                            ;
-; Average fan-out                             ; 3.85                                                                                            ;
+; Maximum fan-out                             ; 201                                                                                             ;
+; Total fan-out                               ; 2468                                                                                            ;
+; Average fan-out                             ; 3.91                                                                                            ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 
 
@@ -317,34 +318,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Library Name ;
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
-; |MIPS_System                                   ; 429 (2)           ; 194 (1)      ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
+; |MIPS_System                                   ; 327 (2)           ; 167 (1)      ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
 ;    |ALTPLL_clkgen:pll0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0                                                                              ; work         ;
 ;       |altpll:altpll_component|                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component                                                      ; work         ;
 ;          |ALTPLL_clkgen_altpll:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated                  ; work         ;
-;    |Addr_Decoder:Decoder|                      ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|Addr_Decoder:Decoder                                                                            ; work         ;
-;    |GPIO:uGPIO|                                ; 40 (25)           ; 26 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO                                                                                      ; work         ;
+;    |Addr_Decoder:Decoder|                      ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|Addr_Decoder:Decoder                                                                            ; work         ;
+;    |GPIO:uGPIO|                                ; 39 (24)           ; 26 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO                                                                                      ; work         ;
 ;       |pulse_gen:sw0|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw0                                                                        ; work         ;
 ;    |TimerCounter:Timer|                        ; 54 (54)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|TimerCounter:Timer                                                                              ; work         ;
-;    |mips:mips_cpu|                             ; 313 (0)           ; 132 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
-;       |controller:c|                           ; 32 (1)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
+;    |mips:mips_cpu|                             ; 215 (0)           ; 105 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
+;       |controller:c|                           ; 31 (1)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
 ;          |aludec:ad|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad                                                            ; work         ;
-;          |maindec:md|                          ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
-;       |datapath:dp|                            ; 281 (1)           ; 132 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
+;          |maindec:md|                          ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
+;       |datapath:dp|                            ; 184 (1)           ; 105 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
 ;          |adder:pcadd2|                        ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|adder:pcadd2                                                          ; work         ;
 ;          |alu:alu|                             ; 67 (67)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu                                                               ; work         ;
 ;          |flopenr:IF_ID_inst|                  ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst                                                    ; work         ;
 ;          |flopenr:IF_ID_pcplus4|               ; 12 (12)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4                                                 ; work         ;
+;          |flopr:ID_EX_inst_1|                  ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1                                                    ; work         ;
+;          |flopr:ID_EX_inst_2|                  ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2                                                    ; work         ;
 ;          |flopr:ID_EX_rd1|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1                                                       ; work         ;
 ;          |flopr:ID_EX_rd2|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2                                                       ; work         ;
 ;          |flopr:ID_EX_shiftedimm|              ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_shiftedimm                                                ; work         ;
 ;          |flopr:ID_EX_signimm|                 ; 0 (0)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm                                                   ; work         ;
 ;          |flopr:pcreg|                         ; 11 (11)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg                                                           ; work         ;
 ;          |mux2:pcmux|                          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:pcmux                                                            ; work         ;
-;          |mux2:ra1_mux|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:ra1_mux                                                          ; work         ;
 ;          |mux2:srcbmux|                        ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux                                                          ; work         ;
-;          |mux2:wa_mux|                         ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wa_mux                                                           ; work         ;
-;          |mux2:wd_mux|                         ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wd_mux                                                           ; work         ;
-;          |regfile:rf|                          ; 97 (97)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
+;          |mux2:wd_mux|                         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wd_mux                                                           ; work         ;
+;          |regfile:rf|                          ; 9 (9)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
 ;          |shift_left_16:sl16|                  ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|shift_left_16:sl16                                                    ; work         ;
 ;    |ram2port_inst_data:Inst_Data_Mem|          ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|        ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component                                ; work         ;
@@ -684,6 +685,7 @@ Encoding Type:  One-Hot
 ; GPIO:uGPIO|HEX2_R[1..4]                                 ; Merged with GPIO:uGPIO|HEX2_R[5]                                ;
 ; GPIO:uGPIO|HEX3_R[1..4]                                 ; Merged with GPIO:uGPIO|HEX3_R[5]                                ;
 ; TimerCounter:Timer|CompareR[2..31]                      ; Merged with TimerCounter:Timer|CompareR[1]                      ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[11]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[0]   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[17..29] ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[16] ;
 ; GPIO:uGPIO|BUTTON_StatusR[0]                            ; Stuck at GND due to stuck port data_in                          ;
 ; GPIO:uGPIO|HEX0_R[5]                                    ; Stuck at GND due to stuck port data_in                          ;
@@ -692,6 +694,35 @@ Encoding Type:  One-Hot
 ; GPIO:uGPIO|HEX3_R[5]                                    ; Stuck at GND due to stuck port data_in                          ;
 ; mips:mips_cpu|datapath:dp|flopr:pcreg|q[1]              ; Stuck at GND due to stuck port data_in                          ;
 ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[1]    ; Stuck at GND due to stuck port data_in                          ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R6[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R5[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R4[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R3[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R2[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R7[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R8[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R9[0]              ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R10[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R11[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R12[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R13[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R14[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R15[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R16[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R17[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R18[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R19[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R20[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R21[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R22[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R23[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R24[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R25[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R26[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R27[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R28[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R29[0]             ; Stuck at GND due to stuck port clock_enable                     ;
+; mips:mips_cpu|datapath:dp|regfile:rf|R30[0]             ; Stuck at GND due to stuck port clock_enable                     ;
 ; GPIO:uGPIO|pulse_gen:sw9|c_state~2                      ; Lost fanout                                                     ;
 ; GPIO:uGPIO|pulse_gen:sw9|c_state~3                      ; Lost fanout                                                     ;
 ; GPIO:uGPIO|pulse_gen:sw9|c_state~4                      ; Lost fanout                                                     ;
@@ -917,9 +948,9 @@ Encoding Type:  One-Hot
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S13                ; Lost fanout                                                     ;
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S14                ; Lost fanout                                                     ;
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S15                ; Lost fanout                                                     ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[11..16] ; Lost fanout                                                     ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[12..16] ; Lost fanout                                                     ;
 ; mips:mips_cpu|datapath:dp|flopr:pcreg|q[13..31]         ; Lost fanout                                                     ;
-; Total Number of Removed Registers = 355                 ;                                                                 ;
+; Total Number of Removed Registers = 384                 ;                                                                 ;
 +---------------------------------------------------------+-----------------------------------------------------------------+
 
 
@@ -928,6 +959,35 @@ Encoding Type:  One-Hot
 +--------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
 ; Register name                              ; Reason for Removal        ; Registers Removed due to This Register                                             ;
 +--------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
+; GPIO:uGPIO|BUTTON_StatusR[0]               ; Stuck at GND              ; mips:mips_cpu|datapath:dp|regfile:rf|R6[0],                                        ;
+;                                            ; due to stuck port data_in ; mips:mips_cpu|datapath:dp|regfile:rf|R5[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R4[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R3[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R2[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R7[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R8[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R9[0],                                        ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R10[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R11[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R12[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R13[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R14[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R15[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R16[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R17[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R18[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R19[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R20[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R21[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R22[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R23[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R24[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R25[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R26[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R27[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R28[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R29[0],                                       ;
+;                                            ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R30[0]                                        ;
 ; mips:mips_cpu|datapath:dp|flopr:pcreg|q[1] ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[1],                              ;
 ;                                            ; due to stuck port data_in ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[16],                               ;
 ;                                            ;                           ; mips:mips_cpu|datapath:dp|flopr:pcreg|q[31],                                       ;
@@ -958,10 +1018,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 194   ;
+; Total registers                              ; 167   ;
 ; Number of registers using Synchronous Clear  ; 45    ;
 ; Number of registers using Synchronous Load   ; 11    ;
-; Number of registers using Asynchronous Clear ; 101   ;
+; Number of registers using Asynchronous Clear ; 103   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 12    ;
 ; Number of registers using Preset             ; 0     ;
@@ -975,8 +1035,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[31]     ;
 ; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg|q[12]     ;
-; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu|Mux17         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wa_mux|y[2]      ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu|Mux6          ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad|Mux0       ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md|Selector9 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
@@ -2188,7 +2247,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 ; d    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d[31..5]" will be connected to GND. ;
 ; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[31..1]" have no fanouts                      ;
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
 +------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2199,7 +2257,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 ; d    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d[31..5]" will be connected to GND. ;
 ; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[31..1]" have no fanouts                      ;
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
 +------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2267,6 +2324,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wrmux"                                                                                                     ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; d0   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "d0[4..1]" will be connected to GND. ;
+; d1   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "d1[4..1]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|regfile:rf"                                                                                                                                              ;
 +------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2312,7 +2379,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -2322,7 +2389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon Nov 20 22:02:40 2017
+    Info: Processing started: Tue Nov 21 00:51:18 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS_System -c MIPS_System
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_mem_dual_port/ram2port_inst_data.v
@@ -2357,22 +2424,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: Addr_Decoder
 Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_pll/altpll_clkgen.v
     Info (12023): Found entity 1: ALTPLL_clkgen
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(235): created implicit net for "writedata"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(267): created implicit net for "ID_EX_rd1_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(301): created implicit net for "stall"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(330): created implicit net for "ID_EX_inst_1_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(336): created implicit net for "ID_EX_inst_2_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(349): created implicit net for "ID_EX_C_signext_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(355): created implicit net for "ID_EX_C_shiftl16_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(361): created implicit net for "ID_EX_C_regwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(367): created implicit net for "ID_EX_C_regdst_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(373): created implicit net for "ID_EX_C_alusrc_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(378): created implicit net for "branch"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(379): created implicit net for "ID_EX_C_branch_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(384): created implicit net for "memwrite"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(385): created implicit net for "ID_EX_C_memwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(391): created implicit net for "ID_EX_C_memtoreg_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(397): created implicit net for "ID_EX_C_jump_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(233): created implicit net for "writedata"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(236): created implicit net for "ID_EX_inst_1_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(237): created implicit net for "ID_EX_inst_2_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(265): created implicit net for "ID_EX_rd1_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(299): created implicit net for "stall"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(347): created implicit net for "ID_EX_C_signext_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(353): created implicit net for "ID_EX_C_shiftl16_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(359): created implicit net for "ID_EX_C_regwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(365): created implicit net for "ID_EX_C_regdst_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(371): created implicit net for "ID_EX_C_alusrc_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(376): created implicit net for "branch"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(377): created implicit net for "ID_EX_C_branch_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(382): created implicit net for "memwrite"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(383): created implicit net for "ID_EX_C_memwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(389): created implicit net for "ID_EX_C_memtoreg_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(395): created implicit net for "ID_EX_C_jump_out"
 Info (12127): Elaborating entity "MIPS_System" for the top level hierarchy
 Info (12128): Elaborating entity "ALTPLL_clkgen" for hierarchy "ALTPLL_clkgen:pll0"
 Info (12128): Elaborating entity "altpll" for hierarchy "ALTPLL_clkgen:pll0|altpll:altpll_component"
@@ -2449,7 +2516,7 @@ Info (12128): Elaborating entity "controller" for hierarchy "mips:mips_cpu|contr
 Info (12128): Elaborating entity "maindec" for hierarchy "mips:mips_cpu|controller:c|maindec:md"
 Info (12128): Elaborating entity "aludec" for hierarchy "mips:mips_cpu|controller:c|aludec:ad"
 Info (12128): Elaborating entity "datapath" for hierarchy "mips:mips_cpu|datapath:dp"
-Warning (10030): Net "stall" at mips.v(301) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "stall" at mips.v(299) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "flopr" for hierarchy "mips:mips_cpu|datapath:dp|flopr:pcreg"
 Info (12128): Elaborating entity "adder" for hierarchy "mips:mips_cpu|datapath:dp|adder:pcadd1"
 Info (12128): Elaborating entity "sl2" for hierarchy "mips:mips_cpu|datapath:dp|sl2:immsh"
@@ -2528,7 +2595,7 @@ Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "mips:mips_cpu|datapath:dp|ra1_mux_result[7]" is missing source, defaulting to GND
     Warning (12110): Net "mips:mips_cpu|datapath:dp|ra1_mux_result[6]" is missing source, defaulting to GND
     Warning (12110): Net "mips:mips_cpu|datapath:dp|ra1_mux_result[5]" is missing source, defaulting to GND
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3_D[1]" is stuck at GND
     Warning (13410): Pin "HEX3_D[2]" is stuck at GND
@@ -2551,7 +2618,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0_D[4]" is stuck at GND
     Warning (13410): Pin "HEX0_D[5]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 250 registers lost all their fanouts during netlist optimizations.
+Info (17049): 249 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 11 input pin(s) that do not drive logic
@@ -2566,16 +2633,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "BUTTON[2]"
     Warning (15610): No output dependent on input pin "BUTTON[1]"
-Info (21057): Implemented 564 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 464 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 38 output pins
-    Info (21061): Implemented 479 logic cells
+    Info (21061): Implemented 379 logic cells
     Info (21064): Implemented 32 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 81 warnings
-    Info: Peak virtual memory: 539 megabytes
-    Info: Processing ended: Mon Nov 20 22:02:45 2017
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 540 megabytes
+    Info: Processing ended: Tue Nov 21 00:51:27 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
 
 
