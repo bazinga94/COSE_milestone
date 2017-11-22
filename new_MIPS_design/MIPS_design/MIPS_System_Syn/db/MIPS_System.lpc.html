@@ -288,7 +288,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mips_cpu|dp|EX_MEM_C_memwrite</TD>
+<TD >mips_cpu|dp|MEM_WB_C_memtoreg</TD>
 <TD >3</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -304,7 +304,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mips_cpu|dp|EX_MEM_C_branch</TD>
+<TD >mips_cpu|dp|MEM_WB_C_regwrite</TD>
 <TD >3</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -313,6 +313,54 @@
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|dp|MEM_WB_wrmux</TD>
+<TD >7</TD>
+<TD >8</TD>
+<TD >0</TD>
+<TD >8</TD>
+<TD >5</TD>
+<TD >8</TD>
+<TD >8</TD>
+<TD >8</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|dp|MEM_WB_alu</TD>
+<TD >34</TD>
+<TD >31</TD>
+<TD >0</TD>
+<TD >31</TD>
+<TD >32</TD>
+<TD >31</TD>
+<TD >31</TD>
+<TD >31</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|dp|MEM_WB_readdata</TD>
+<TD >34</TD>
+<TD >31</TD>
+<TD >0</TD>
+<TD >31</TD>
+<TD >32</TD>
+<TD >31</TD>
+<TD >31</TD>
+<TD >31</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -353,14 +401,14 @@
 </TR>
 <TR >
 <TD >mips_cpu|dp|EX_MEM_wrmux</TD>
-<TD >34</TD>
-<TD >58</TD>
+<TD >7</TD>
+<TD >4</TD>
 <TD >0</TD>
-<TD >58</TD>
-<TD >32</TD>
-<TD >58</TD>
-<TD >58</TD>
-<TD >58</TD>
+<TD >4</TD>
+<TD >5</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -496,38 +544,6 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mips_cpu|dp|ID_EX_C_memwrite</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mips_cpu|dp|ID_EX_C_branch</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
 <TD >mips_cpu|dp|ID_EX_C_alusrc</TD>
 <TD >3</TD>
 <TD >0</TD>
@@ -577,22 +593,6 @@
 </TR>
 <TR >
 <TD >mips_cpu|dp|ID_EX_C_shiftl16</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mips_cpu|dp|ID_EX_C_signext</TD>
 <TD >3</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -834,13 +834,13 @@
 <TR >
 <TD >mips_cpu|dp|resmux</TD>
 <TD >65</TD>
+<TD >62</TD>
 <TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
+<TD >62</TD>
 <TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
+<TD >62</TD>
+<TD >62</TD>
+<TD >62</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -992,6 +992,70 @@
 <TD >0</TD>
 </TR>
 <TR >
+<TD >mips_cpu|c|EX_MEM_C_memwrite</TD>
+<TD >3</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|c|EX_MEM_C_branch</TD>
+<TD >3</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|c|ID_EX_C_memwrite</TD>
+<TD >3</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mips_cpu|c|ID_EX_C_branch</TD>
+<TD >3</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
 <TD >mips_cpu|c|ID_EX_inst_3</TD>
 <TD >34</TD>
 <TD >57</TD>
@@ -1057,7 +1121,7 @@
 </TR>
 <TR >
 <TD >mips_cpu|c</TD>
-<TD >13</TD>
+<TD >15</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
