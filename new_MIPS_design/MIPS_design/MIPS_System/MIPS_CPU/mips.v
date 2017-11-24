@@ -32,13 +32,13 @@ module mips(input         clk, reset,
   // ###### jongho lee: End #######
 		.zero       (zero),
 		.signext    (signext),
-		.shiftl16   (shiftl16),
-		.memtoreg   (memtoreg),
-		.EX_MEM_C_memwrite_out   (memwrite),
+		.hz_shiftl16   (hz_shiftl16),
+		.hz_memtoreg   (hz_memtoreg),
+		.hz_memwrite   (hz_memwrite),
 		.pcsrc      (pcsrc),
-		.alusrc     (alusrc),
-		.regdst     (regdst),
-		.regwrite   (regwrite),
+		.hz_alusrc     (hz_alusrc),
+		.hz_regdst     (hz_regdst),
+		.hz_regwrite   (hz_regwrite),
 		.jump       (jump),
 		.alucontrol (alucontrol));
 
@@ -47,12 +47,13 @@ module mips(input         clk, reset,
     .clk        (clk),
     .reset      (reset),
     .signext    (signext),
-    .shiftl16   (shiftl16),
-    .memtoreg   (memtoreg),
+    .hz_shiftl16   (hz_shiftl16),
+    .hz_memtoreg   (hz_memtoreg),
     .pcsrc      (pcsrc),
-    .alusrc     (alusrc),
-    .regdst     (regdst),
-    .regwrite   (regwrite),
+    .hz_alusrc     (hz_alusrc),
+    .hz_regdst     (hz_regdst),
+    .hz_regwrite   (hz_regwrite),
+	 .hz_memwrite   (hz_memwrite),
     .jump       (jump),
     .alucontrol (alucontrol),
     .EX_MEM_alu_zero_out       (zero),
@@ -61,18 +62,48 @@ module mips(input         clk, reset,
     .IF_ID_inst_out      (IF_ID_inst_out),  //add f.f wire  //why error?????
     .EX_MEM_alu_out     (memaddr), 
     .EX_MEM_rd2_out  (memwritedata),  //writedata change
-    .readdata   (memreaddata));
+    .readdata   (memreaddata),
+	 .EX_MEM_C_memwrite_out   (memwrite),
+	 .ID_EX_C_memtoreg_out     (ID_EX_C_memtoreg_out),	      //for hazard_detection
+	 .ID_EX_inst_1_out 			(ID_EX_inst_1_out),				//for hazard_detection
+	 .stall				(stall)
+	 );
+	       
 
+	 hazard_detection hd(
+    .ID_EX_C_memtoreg_out	(ID_EX_C_memtoreg_out), 
+	 .ID_EX_inst_1_out	   (ID_EX_inst_1_out), 
+	 .IF_ID_inst_rs	(IF_ID_inst_out[25:21]), 
+	 .IF_ID_inst_rt	(IF_ID_inst_out[20:16]),
+    .stall				   (stall));    
+	 
 endmodule
+
+module hazard_detection (
+								input ID_EX_C_memtoreg_out,
+								input [4:0] ID_EX_inst_1_out,  IF_ID_inst_rs, IF_ID_inst_rt,
+								output reg stall 
+								);
+  always @(*)
+  begin
+  if((ID_EX_C_memtoreg_out==1) & (IF_ID_inst_rs== ID_EX_inst_1_out))
+	stall = 1'b1;
+  else if ((ID_EX_C_memtoreg_out==1) & (IF_ID_inst_rt == ID_EX_inst_1_out))
+	stall = 1'b1;
+  else
+	stall = 1'b0;
+  end
+ endmodule
+
 
 module controller(input        clk, reset,  //add clk, reset
 						input  [5:0] op, funct,
                   input        zero,
                   output       signext,
-                  output       shiftl16,
-                  output       memtoreg, EX_MEM_C_memwrite_out,
-                  output       pcsrc, alusrc,
-                  output       regdst, regwrite,
+                  output       hz_shiftl16,
+                  output       hz_memtoreg, hz_memwrite,
+                  output       pcsrc, hz_alusrc,
+                  output       hz_regdst, hz_regwrite,
                   output       jump,
                   output [2:0] alucontrol);
 
@@ -83,13 +114,13 @@ module controller(input        clk, reset,  //add clk, reset
     .op       (op),
 	 .funct	  (funct),   //add funct
     .signext  (signext),
-    .shiftl16 (shiftl16),
-    .memtoreg (memtoreg),
-    .memwrite (memwrite),
+    .shiftl16 (hz_shiftl16),
+    .memtoreg (hz_memtoreg),
+    .memwrite (hz_memwrite),
     .branch   (branch),
-    .alusrc   (alusrc),
-    .regdst   (regdst),
-    .regwrite (regwrite),
+    .alusrc   (hz_alusrc),
+    .regdst   (hz_regdst),
+    .regwrite (hz_regwrite),
     .jump     (jump),
     .aluop    (aluop));
 
@@ -116,23 +147,11 @@ module controller(input        clk, reset,  //add clk, reset
 	 .d     (branch), 
 	 .q     (ID_EX_C_branch_out));
 	 
-  flopr #(1) ID_EX_C_memwrite (
-	 .clk   (clk), 
-	 .reset (reset), 
-	 .d     (memwrite), 
-	 .q     (ID_EX_C_memwrite_out));
-	 
   flopr #(1) EX_MEM_C_branch (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (ID_EX_C_branch_out), 
 	 .q     (EX_MEM_C_branch_out));
-	 
-	 flopr #(1) EX_MEM_C_memwrite (
-	 .clk   (clk), 
-	 .reset (reset), 
-	 .d     (ID_EX_C_memwrite_out), 
-	 .q     (EX_MEM_C_memwrite_out));
 
   assign pcsrc = op[0] ? (EX_MEM_C_branch_out & ~zero) : (EX_MEM_C_branch_out & zero); //bne!!!!!! beq -> op[0]=0, bne -> op[0]=1
   
@@ -202,18 +221,24 @@ module aludec(input      [5:0] funct,
 endmodule
 
 module datapath(input         clk, reset,
+					 input			stall,
                 input         signext,
-                input         shiftl16,
-                input         memtoreg, pcsrc,
-                input         alusrc, regdst,
-                input         regwrite, jump,
+                input         hz_shiftl16,
+                input         hz_memtoreg, pcsrc,
+                input         hz_alusrc, hz_regdst,
+                input         hz_regwrite, jump,
+					 input			hz_memwrite, 				//add input memwrite
+					 output			EX_MEM_C_memwrite_out,
                 input  [2:0]  alucontrol,
                 output        EX_MEM_alu_zero_out,  //add EX_MEM f.f
                 output [31:0] pc,
                 input  [31:0] instr,
 					 output [31:0] IF_ID_inst_out,    //add f.f wire
                 output [31:0] EX_MEM_alu_out, EX_MEM_rd2_out,  //add f.f(wirtedata) wire
-                input  [31:0] readdata);
+                input  [31:0] readdata,
+					 output ID_EX_C_memtoreg_out,	      //for hazard_detection
+	             output ID_EX_inst_1_out				//for hazard_detection
+					 );
 
   wire [4:0]  writereg, wa_mux_result;
   wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch;
@@ -228,9 +253,10 @@ module datapath(input         clk, reset,
   // ###### jongho lee: End #######
   
   // next PC logic
-  flopr #(32) pcreg(
+  flopenr #(32) pcreg(   //for stall pc
     .clk   (clk),
     .reset (reset),
+	 .en	  (~stall),
     .d     (pcnext),
     .q     (pc));
 
@@ -410,7 +436,6 @@ module datapath(input         clk, reset,
 	 .q     (ID_EX_C_alusrc_out));
 	 
 	 
-	 
 	 flopr #(1) ID_EX_C_memtoreg (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -422,6 +447,12 @@ module datapath(input         clk, reset,
 	 .reset (reset), 
 	 .d     (jump), 
 	 .q     (ID_EX_C_jump_out));
+	 
+	 flopr #(1) ID_EX_C_memwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (memwrite), 
+	 .q     (ID_EX_C_memwrite_out));
 	 
 	 //flopr #(2) ID_EX_C_aluop (
 	 //.clk   (clk), 
@@ -483,6 +514,12 @@ module datapath(input         clk, reset,
 	 .d     (ID_EX_C_memtoreg_out), 
 	 .q     (EX_MEM_C_memtoreg_out));
 	 
+	 flopr #(1) EX_MEM_C_memwrite (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (ID_EX_C_memwrite_out), 
+	 .q     (EX_MEM_C_memwrite_out));
+	 
 	 flopr #(32) MEM_WB_readdata (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -512,5 +549,11 @@ module datapath(input         clk, reset,
 	 .reset (reset), 
 	 .d     (EX_MEM_C_memtoreg_out), 
 	 .q     (MEM_WB_C_memtoreg_out));
+	 
+	 mux2  #(9)  hzmux( 
+	 .d0    ({hz_memtoreg, hz_regwrite, hz_memwrite, hz_alusrc, hz_regdst, hz_shiftl16}),
+    .d1    (9'b0),
+    .s     (stall),
+    .y     ({memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16}));   //alucontrol????? jump X.... why...
 	 // ###### Jongho Lee: End #######
 endmodule

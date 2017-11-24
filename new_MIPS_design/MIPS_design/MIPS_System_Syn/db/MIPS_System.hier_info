@@ -199,7 +199,7 @@ instr[28] => instr[28].IN1
 instr[29] => instr[29].IN1
 instr[30] => instr[30].IN1
 instr[31] => instr[31].IN1
-memwrite <= controller:c.EX_MEM_C_memwrite_out
+memwrite <= datapath:dp.EX_MEM_C_memwrite_out
 memaddr[0] <= datapath:dp.EX_MEM_alu_out
 memaddr[1] <= datapath:dp.EX_MEM_alu_out
 memaddr[2] <= datapath:dp.EX_MEM_alu_out
@@ -299,8 +299,8 @@ memreaddata[31] => memreaddata[31].IN1
 
 
 |MIPS_System|mips:mips_cpu|controller:c
-clk => clk.IN6
-reset => reset.IN6
+clk => clk.IN4
+reset => reset.IN4
 op[0] => op[0].IN1
 op[1] => op[1].IN1
 op[2] => op[2].IN1
@@ -316,13 +316,13 @@ funct[5] => funct[5].IN2
 zero => pcsrc.IN1
 zero => pcsrc.IN1
 signext <= maindec:md.signext
-shiftl16 <= maindec:md.shiftl16
-memtoreg <= maindec:md.memtoreg
-EX_MEM_C_memwrite_out <= flopr:EX_MEM_C_memwrite.q
+hz_shiftl16 <= maindec:md.shiftl16
+hz_memtoreg <= maindec:md.memtoreg
+hz_memwrite <= maindec:md.memwrite
 pcsrc <= pcsrc.DB_MAX_OUTPUT_PORT_TYPE
-alusrc <= maindec:md.alusrc
-regdst <= maindec:md.regdst
-regwrite <= maindec:md.regwrite
+hz_alusrc <= maindec:md.alusrc
+hz_regdst <= maindec:md.regdst
+hz_regwrite <= maindec:md.regwrite
 jump <= maindec:md.jump
 alucontrol[0] <= aludec:ad.alucontrol
 alucontrol[1] <= aludec:ad.alucontrol
@@ -522,13 +522,6 @@ d[0] => q[0]~reg0.DATAIN
 q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MIPS_System|mips:mips_cpu|controller:c|flopr:ID_EX_C_memwrite
-clk => q[0]~reg0.CLK
-reset => q[0]~reg0.ACLR
-d[0] => q[0]~reg0.DATAIN
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
 |MIPS_System|mips:mips_cpu|controller:c|flopr:EX_MEM_C_branch
 clk => q[0]~reg0.CLK
 reset => q[0]~reg0.ACLR
@@ -536,24 +529,20 @@ d[0] => q[0]~reg0.DATAIN
 q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MIPS_System|mips:mips_cpu|controller:c|flopr:EX_MEM_C_memwrite
-clk => q[0]~reg0.CLK
-reset => q[0]~reg0.ACLR
-d[0] => q[0]~reg0.DATAIN
-q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
 |MIPS_System|mips:mips_cpu|datapath:dp
-clk => clk.IN28
-reset => reset.IN27
+clk => clk.IN30
+reset => reset.IN29
+stall => stall.IN1
 signext => signext.IN1
-shiftl16 => shiftl16.IN1
-memtoreg => memtoreg.IN1
+hz_shiftl16 => hz_shiftl16.IN1
+hz_memtoreg => hz_memtoreg.IN1
 pcsrc => pcsrc.IN1
-alusrc => alusrc.IN1
-regdst => regdst.IN1
-regwrite => regwrite.IN1
+hz_alusrc => hz_alusrc.IN1
+hz_regdst => hz_regdst.IN1
+hz_regwrite => hz_regwrite.IN1
 jump => jump.IN4
+hz_memwrite => hz_memwrite.IN1
+EX_MEM_C_memwrite_out <= flopr:EX_MEM_C_memwrite.q
 alucontrol[0] => alucontrol[0].IN1
 alucontrol[1] => alucontrol[1].IN1
 alucontrol[2] => alucontrol[2].IN1
@@ -750,9 +739,11 @@ readdata[28] => readdata[28].IN1
 readdata[29] => readdata[29].IN1
 readdata[30] => readdata[30].IN1
 readdata[31] => readdata[31].IN1
+ID_EX_C_memtoreg_out <= ID_EX_C_memtoreg_out.DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_inst_1_out <= ID_EX_inst_1_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MIPS_System|mips:mips_cpu|datapath:dp|flopr:pcreg
+|MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -817,6 +808,38 @@ reset => q[28]~reg0.ACLR
 reset => q[29]~reg0.ACLR
 reset => q[30]~reg0.ACLR
 reset => q[31]~reg0.ACLR
+en => q[31]~reg0.ENA
+en => q[30]~reg0.ENA
+en => q[29]~reg0.ENA
+en => q[28]~reg0.ENA
+en => q[27]~reg0.ENA
+en => q[26]~reg0.ENA
+en => q[25]~reg0.ENA
+en => q[24]~reg0.ENA
+en => q[23]~reg0.ENA
+en => q[22]~reg0.ENA
+en => q[21]~reg0.ENA
+en => q[20]~reg0.ENA
+en => q[19]~reg0.ENA
+en => q[18]~reg0.ENA
+en => q[17]~reg0.ENA
+en => q[16]~reg0.ENA
+en => q[15]~reg0.ENA
+en => q[14]~reg0.ENA
+en => q[13]~reg0.ENA
+en => q[12]~reg0.ENA
+en => q[11]~reg0.ENA
+en => q[10]~reg0.ENA
+en => q[9]~reg0.ENA
+en => q[8]~reg0.ENA
+en => q[7]~reg0.ENA
+en => q[6]~reg0.ENA
+en => q[5]~reg0.ENA
+en => q[4]~reg0.ENA
+en => q[3]~reg0.ENA
+en => q[2]~reg0.ENA
+en => q[1]~reg0.ENA
+en => q[0]~reg0.ENA
 d[0] => q[0]~reg0.DATAIN
 d[1] => q[1]~reg0.DATAIN
 d[2] => q[2]~reg0.DATAIN
@@ -6818,6 +6841,13 @@ d[0] => q[0]~reg0.DATAIN
 q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memwrite
+clk => q[0]~reg0.CLK
+reset => q[0]~reg0.ACLR
+d[0] => q[0]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
@@ -7517,6 +7547,13 @@ d[0] => q[0]~reg0.DATAIN
 q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|MIPS_System|mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memwrite
+clk => q[0]~reg0.CLK
+reset => q[0]~reg0.ACLR
+d[0] => q[0]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
@@ -7814,6 +7851,71 @@ clk => q[0]~reg0.CLK
 reset => q[0]~reg0.ACLR
 d[0] => q[0]~reg0.DATAIN
 q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MIPS_System|mips:mips_cpu|datapath:dp|mux2:hzmux
+d0[0] => y.DATAA
+d0[1] => y.DATAA
+d0[2] => y.DATAA
+d0[3] => y.DATAA
+d0[4] => y.DATAA
+d0[5] => y.DATAA
+d0[6] => y.DATAA
+d0[7] => y.DATAA
+d0[8] => y.DATAA
+d1[0] => y.DATAB
+d1[1] => y.DATAB
+d1[2] => y.DATAB
+d1[3] => y.DATAB
+d1[4] => y.DATAB
+d1[5] => y.DATAB
+d1[6] => y.DATAB
+d1[7] => y.DATAB
+d1[8] => y.DATAB
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[8] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MIPS_System|mips:mips_cpu|hazard_detection:hd
+ID_EX_C_memtoreg_out => always0.IN1
+ID_EX_C_memtoreg_out => always0.IN1
+ID_EX_inst_1_out[0] => Equal0.IN4
+ID_EX_inst_1_out[0] => Equal1.IN4
+ID_EX_inst_1_out[1] => Equal0.IN3
+ID_EX_inst_1_out[1] => Equal1.IN3
+ID_EX_inst_1_out[2] => Equal0.IN2
+ID_EX_inst_1_out[2] => Equal1.IN2
+ID_EX_inst_1_out[3] => Equal0.IN1
+ID_EX_inst_1_out[3] => Equal1.IN1
+ID_EX_inst_1_out[4] => Equal0.IN0
+ID_EX_inst_1_out[4] => Equal1.IN0
+IF_ID_inst_rs[0] => Equal0.IN9
+IF_ID_inst_rs[1] => Equal0.IN8
+IF_ID_inst_rs[2] => Equal0.IN7
+IF_ID_inst_rs[3] => Equal0.IN6
+IF_ID_inst_rs[4] => Equal0.IN5
+IF_ID_inst_rt[0] => Equal1.IN9
+IF_ID_inst_rt[1] => Equal1.IN8
+IF_ID_inst_rt[2] => Equal1.IN7
+IF_ID_inst_rt[3] => Equal1.IN6
+IF_ID_inst_rt[4] => Equal1.IN5
+stall <= stall.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |MIPS_System|ram2port_inst_data:Inst_Data_Mem
