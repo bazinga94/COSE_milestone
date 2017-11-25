@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS_System
-Fri Nov 24 14:40:09 2017
+Fri Nov 24 22:43:22 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -51,79 +51,89 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  43. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm
  44. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1
  45. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2
- 46. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_shiftl16
- 47. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regwrite
- 48. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regdst
- 49. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_alusrc
- 50. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memtoreg
- 51. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_jump
- 52. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memwrite
- 53. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1
- 54. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2
- 55. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_pcadd2
- 56. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu
- 57. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu_zero
- 58. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2
- 59. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux
- 60. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_regwrite
- 61. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memtoreg
- 62. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memwrite
- 63. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata
- 64. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu
- 65. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux
- 66. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_regwrite
- 67. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_memtoreg
- 68. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:hzmux
- 69. Parameter Settings for User Entity Instance: ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component
- 70. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:button1
- 71. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:button2
- 72. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw0
- 73. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw1
- 74. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw2
- 75. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw3
- 76. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw4
- 77. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw5
- 78. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw6
- 79. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw7
- 80. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw8
- 81. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw9
- 82. altpll Parameter Settings by Entity Instance
- 83. altsyncram Parameter Settings by Entity Instance
- 84. Port Connectivity Checks: "GPIO:uGPIO"
- 85. Port Connectivity Checks: "TimerCounter:Timer"
- 86. Port Connectivity Checks: "Addr_Decoder:Decoder"
- 87. Port Connectivity Checks: "ram2port_inst_data:Inst_Data_Mem"
- 88. Port Connectivity Checks: "mips:mips_cpu|hazard_detection:hd"
- 89. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:hzmux"
- 90. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux"
- 91. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu"
- 92. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata"
- 93. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux"
- 94. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2"
- 95. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu"
- 96. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_pcadd2"
- 97. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2"
- 98. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1"
- 99. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_C_jump"
-100. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2"
-101. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1"
-102. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:jr_pc_mux"
-103. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:ra1_mux"
-104. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"
-105. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|alu:alu"
-106. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:srcbmux"
-107. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:resmux"
-108. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wrmux"
-109. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|regfile:rf"
-110. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:pcbrmux"
-111. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
-112. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
-113. Port Connectivity Checks: "mips:mips_cpu|controller:c|flopr:ID_EX_inst_3"
-114. Port Connectivity Checks: "mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop"
-115. Port Connectivity Checks: "mips:mips_cpu|controller:c|aludec:ad"
-116. Port Connectivity Checks: "mips:mips_cpu"
-117. Elapsed Time Per Partition
-118. Analysis & Synthesis Messages
+ 46. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_3
+ 47. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_shiftl16
+ 48. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regwrite
+ 49. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regdst
+ 50. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_alusrc
+ 51. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memtoreg
+ 52. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_jump
+ 53. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memwrite
+ 54. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1
+ 55. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2
+ 56. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_pcadd2
+ 57. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu
+ 58. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu_zero
+ 59. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2
+ 60. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux
+ 61. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_regwrite
+ 62. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memtoreg
+ 63. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memwrite
+ 64. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata
+ 65. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu
+ 66. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux
+ 67. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_regwrite
+ 68. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_memtoreg
+ 69. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:hzmux
+ 70. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_1
+ 71. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:MEM_WB_fwd_1
+ 72. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_2
+ 73. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:MEM_WB_fwd_2
+ 74. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_1
+ 75. Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_2
+ 76. Parameter Settings for User Entity Instance: ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component
+ 77. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:button1
+ 78. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:button2
+ 79. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw0
+ 80. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw1
+ 81. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw2
+ 82. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw3
+ 83. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw4
+ 84. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw5
+ 85. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw6
+ 86. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw7
+ 87. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw8
+ 88. Parameter Settings for User Entity Instance: GPIO:uGPIO|pulse_gen:sw9
+ 89. altpll Parameter Settings by Entity Instance
+ 90. altsyncram Parameter Settings by Entity Instance
+ 91. Port Connectivity Checks: "GPIO:uGPIO"
+ 92. Port Connectivity Checks: "TimerCounter:Timer"
+ 93. Port Connectivity Checks: "Addr_Decoder:Decoder"
+ 94. Port Connectivity Checks: "ram2port_inst_data:Inst_Data_Mem"
+ 95. Port Connectivity Checks: "mips:mips_cpu|forwarding:fw"
+ 96. Port Connectivity Checks: "mips:mips_cpu|hazard_detection:hd"
+ 97. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_2"
+ 98. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_1"
+ 99. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_2"
+100. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_1"
+101. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:hzmux"
+102. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu"
+103. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata"
+104. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2"
+105. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu"
+106. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_pcadd2"
+107. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2"
+108. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1"
+109. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_C_jump"
+110. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_3"
+111. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2"
+112. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1"
+113. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:jr_pc_mux"
+114. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:ra1_mux"
+115. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"
+116. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|alu:alu"
+117. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:resmux"
+118. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wrmux"
+119. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|regfile:rf"
+120. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:pcbrmux"
+121. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
+122. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
+123. Port Connectivity Checks: "mips:mips_cpu|controller:c|flopr:ID_EX_inst_3"
+124. Port Connectivity Checks: "mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop"
+125. Port Connectivity Checks: "mips:mips_cpu|controller:c|aludec:ad"
+126. Port Connectivity Checks: "mips:mips_cpu"
+127. Elapsed Time Per Partition
+128. Analysis & Synthesis Messages
 
 
 
@@ -149,7 +159,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 24 14:40:09 2017      ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 24 22:43:22 2017      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; MIPS_System                                ;
 ; Top-level Entity Name              ; MIPS_System                                ;
@@ -653,6 +663,8 @@ Encoding Type:  One-Hot
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[1..31]      ; Stuck at GND due to stuck port data_in ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[1..31]      ; Stuck at GND due to stuck port data_in ;
 ; mips:mips_cpu|controller:c|flopr:ID_EX_inst_3|q[0]       ; Lost fanout                            ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[1..4]     ; Stuck at GND due to stuck port data_in ;
+; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[1..4]     ; Stuck at GND due to stuck port data_in ;
 ; GPIO:uGPIO|BUTTON_StatusR[0]                             ; Lost fanout                            ;
 ; GPIO:uGPIO|SW_StatusR[0]                                 ; Lost fanout                            ;
 ; TimerCounter:Timer|CounterR[0..31]                       ; Lost fanout                            ;
@@ -680,6 +692,7 @@ Encoding Type:  One-Hot
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regdst|q[0]      ; Lost fanout                            ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regwrite|q[0]    ; Lost fanout                            ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_shiftl16|q[0]    ; Lost fanout                            ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_3|q[0]        ; Lost fanout                            ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[0]        ; Lost fanout                            ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1|q[0]        ; Lost fanout                            ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[0..31]   ; Lost fanout                            ;
@@ -971,7 +984,7 @@ Encoding Type:  One-Hot
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S13                 ; Lost fanout                            ;
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S14                 ; Lost fanout                            ;
 ; GPIO:uGPIO|pulse_gen:button1|c_state.S15                 ; Lost fanout                            ;
-; Total Number of Removed Registers = 626                  ;                                        ;
+; Total Number of Removed Registers = 635                  ;                                        ;
 +----------------------------------------------------------+----------------------------------------+
 
 
@@ -1004,6 +1017,23 @@ Encoding Type:  One-Hot
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:pcreg|q[26],                                          ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:pcreg|q[25],                                          ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:pcreg|q[24]                                           ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[4]      ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[4],                                      ;
+;                                                        ; due to stuck port data_in ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_memtoreg|q[0],                                 ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[0],                                      ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu|q[0],                                        ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata|q[0],                                   ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memtoreg|q[0],                                 ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[0],                                      ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[0],                                        ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memtoreg|q[0],                                  ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regdst|q[0],                                    ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[0],                                      ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1|q[0],                                      ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[0],                                     ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[0],                                   ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[16],                                     ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[11],                                     ;
+;                                                        ;                           ; mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop|q[0]                                     ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu_zero|q[0]   ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_alusrc|q[0],                                    ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_shiftl16|q[0],                                  ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[31],                                    ;
@@ -1018,33 +1048,16 @@ Encoding Type:  One-Hot
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[27],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[15],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[14]                                      ;
-; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[31]       ; Stuck at GND              ; GPIO:uGPIO|BUTTON_StatusR[0], TimerCounter:Timer|CounterR[0],                           ;
-;                                                        ; due to stuck port data_in ; TimerCounter:Timer|CompareR[0], mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[0],        ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2|q[0],                                         ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[20],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[19],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[18],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[17],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[16],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R3[0],                                             ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R2[0],                                             ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R1[0]                                              ;
-; mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu|q[0]        ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[0],                                        ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1|q[0],                                         ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[0],                                     ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[25],                                     ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1|q[0]         ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[25],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[24],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[23],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[22],                                     ;
 ;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[21],                                     ;
-;                                                        ;                           ; mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop|q[0]                                     ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R3[0],                                             ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R2[0],                                             ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|regfile:rf|R1[0]                                              ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[2]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[2], GPIO:uGPIO|HEX0_R[2], GPIO:uGPIO|HEX1_R[2], GPIO:uGPIO|HEX2_R[2], ;
 ;                                                        ; due to stuck port data_in ; GPIO:uGPIO|HEX3_R[2]                                                                    ;
-; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[0]      ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[0],                                      ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regdst|q[0],                                    ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[0],                                      ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_1|q[0],                                      ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[11]                                      ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[6]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[6], GPIO:uGPIO|HEX0_R[6], GPIO:uGPIO|HEX1_R[6], GPIO:uGPIO|HEX2_R[6], ;
 ;                                                        ; due to stuck port data_in ; GPIO:uGPIO|HEX3_R[6]                                                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[5]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[5], GPIO:uGPIO|HEX0_R[5], GPIO:uGPIO|HEX1_R[5], GPIO:uGPIO|HEX2_R[5], ;
@@ -1055,26 +1068,27 @@ Encoding Type:  One-Hot
 ;                                                        ; due to stuck port data_in ; GPIO:uGPIO|HEX3_R[3]                                                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[1]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[1], GPIO:uGPIO|HEX0_R[1], GPIO:uGPIO|HEX1_R[1], GPIO:uGPIO|HEX2_R[1], ;
 ;                                                        ; due to stuck port data_in ; GPIO:uGPIO|HEX3_R[1]                                                                    ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[31]       ; Stuck at GND              ; GPIO:uGPIO|BUTTON_StatusR[0], TimerCounter:Timer|CounterR[0],                           ;
+;                                                        ; due to stuck port data_in ; TimerCounter:Timer|CompareR[0], mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[0],        ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2|q[0]                                          ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[11]       ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[0], GPIO:uGPIO|HEX0_R[0], GPIO:uGPIO|HEX1_R[0], GPIO:uGPIO|HEX2_R[0], ;
 ;                                                        ; due to stuck port data_in ; GPIO:uGPIO|HEX3_R[0]                                                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[31]       ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memwrite|q[0],                                 ;
 ;                                                        ; due to stuck port data_in ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memwrite|q[0], reset_ff                         ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw8|c_state.S14, GPIO:uGPIO|pulse_gen:sw8|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw7|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw7|c_state.S14, GPIO:uGPIO|pulse_gen:sw7|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw5|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw5|c_state.S14, GPIO:uGPIO|pulse_gen:sw5|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw4|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw4|c_state.S14, GPIO:uGPIO|pulse_gen:sw4|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw3|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw3|c_state.S14, GPIO:uGPIO|pulse_gen:sw3|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw2|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw2|c_state.S14, GPIO:uGPIO|pulse_gen:sw2|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw1|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw1|c_state.S14, GPIO:uGPIO|pulse_gen:sw1|c_state.S15              ;
-; mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_memtoreg|q[0] ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_memtoreg|q[0],                                 ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_memtoreg|q[0]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_regwrite|q[0] ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_regwrite|q[0],                                 ;
-;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regwrite|q[0]                                   ;
 ; GPIO:uGPIO|pulse_gen:sw0|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw0|c_state.S14, GPIO:uGPIO|pulse_gen:sw0|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:button2|c_state~2                 ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:button2|c_state.S14, GPIO:uGPIO|pulse_gen:button2|c_state.S15      ;
+; mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_regwrite|q[0] ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_C_regwrite|q[0],                                 ;
+;                                                        ;                           ; mips:mips_cpu|datapath:dp|flopr:ID_EX_C_regwrite|q[0]                                   ;
 ; GPIO:uGPIO|pulse_gen:button1|c_state~2                 ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:button1|c_state.S14, GPIO:uGPIO|pulse_gen:button1|c_state.S15      ;
 ; GPIO:uGPIO|pulse_gen:sw6|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw6|c_state.S14, GPIO:uGPIO|pulse_gen:sw6|c_state.S15              ;
 ; GPIO:uGPIO|pulse_gen:sw9|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw9|c_state.S14, GPIO:uGPIO|pulse_gen:sw9|c_state.S15              ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state~2                     ; Lost Fanouts              ; GPIO:uGPIO|pulse_gen:sw8|c_state.S14, GPIO:uGPIO|pulse_gen:sw8|c_state.S15              ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[9]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[9]                                                                    ;
 ;                                                        ; due to stuck port data_in ;                                                                                         ;
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_rd2|q[8]        ; Stuck at GND              ; GPIO:uGPIO|LEDG_R[8]                                                                    ;
@@ -1086,6 +1100,12 @@ Encoding Type:  One-Hot
 ; mips:mips_cpu|datapath:dp|flopr:EX_MEM_alu|q[1]        ; Stuck at GND              ; TimerCounter:Timer|StatusR[0]                                                           ;
 ;                                                        ; due to stuck port data_in ;                                                                                         ;
 ; mips:mips_cpu|controller:c|flopr:ID_EX_inst_3|q[0]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[0]                                       ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[3]      ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[3]                                       ;
+;                                                        ; due to stuck port data_in ;                                                                                         ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[2]      ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[2]                                       ;
+;                                                        ; due to stuck port data_in ;                                                                                         ;
+; mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux|q[1]      ; Stuck at GND              ; mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux|q[1]                                       ;
+;                                                        ; due to stuck port data_in ;                                                                                         ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[13]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[13]                                      ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[12]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[12]                                      ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[10]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[10]                                      ;
@@ -1098,31 +1118,30 @@ Encoding Type:  One-Hot
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[3]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[3]                                       ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[2]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[2]                                       ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[1]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst|q[1]                                       ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[23]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[23]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[22]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[22]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[11]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[11]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[10]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[10]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[9]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[9]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[8]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[8]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[7]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[7]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[6]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[6]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[5]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[5]                                    ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[4]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[4]                                    ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[20]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[20]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[22]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[22]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[3]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[3]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[2]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[2]                                    ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[1]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[1]                                    ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[0]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[0]                                    ;
 ; mips:mips_cpu|controller:c|flopr:EX_MEM_C_branch|q[0]  ; Lost Fanouts              ; mips:mips_cpu|controller:c|flopr:ID_EX_C_branch|q[0]                                    ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[21]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[21]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[20]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[20]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[19]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[19]                                   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[23]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[23]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[18]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[18]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[17]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[17]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[21]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[21]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[16]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[16]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[15]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[15]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[14]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[14]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[13]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[13]                                   ;
 ; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[12]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[12]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[11]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[11]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[10]    ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[10]                                   ;
-; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[3]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[3]                                    ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4|q[4]     ; Lost Fanouts              ; mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4|q[4]                                    ;
 +--------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------+
 
 
@@ -1724,6 +1743,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_3 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|flopr:ID_EX_C_shiftl16 ;
 +----------------+-------+----------------------------------------------------------------------+
@@ -1951,6 +1980,66 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------------------+
 ; WIDTH          ; 9     ; Signed Integer                                           ;
 +----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_1 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:MEM_WB_fwd_1 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_2 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:MEM_WB_fwd_2 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_1 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_2 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -2391,6 +2480,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+-------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|forwarding:fw"                                                                                                                                         ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                                                  ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ID_EX_inst_1_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "ID_EX_inst_1_out[4..1]" will be connected to GND. ;
+; EX_MEM_wrmux_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "EX_MEM_wrmux_out[4..1]" will be connected to GND. ;
+; ID_EX_inst_3_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "ID_EX_inst_3_out[4..1]" will be connected to GND. ;
+; MEM_WB_wrmux_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "MEM_WB_wrmux_out[4..1]" will be connected to GND. ;
+; ForwardA         ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "ForwardA[1..1]" have no fanouts                              ;
+; ForwardB         ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "ForwardB[1..1]" have no fanouts                              ;
+; ForwardC         ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "ForwardC[1..1]" have no fanouts                              ;
++------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "mips:mips_cpu|hazard_detection:hd"                                                                                                                                  ;
 +------------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2398,6 +2502,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; ID_EX_inst_1_out ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "ID_EX_inst_1_out[4..1]" will be connected to GND. ;
 +------------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_2"                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                      ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; d0   ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d0[31..1]" will be connected to GND. ;
+; y    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "y[31..1]" have no fanouts                       ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:WB_ID_fwd_1"                                                                            ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; y    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "y[31..1]" have no fanouts ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_2"                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; d0   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d0[31..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:EX_MEM_fwd_1"                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; d0   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d0[31..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2409,16 +2550,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; d1   ; Input  ; Info     ; Stuck at GND                                                                                                                               ;
 ; y    ; Output ; Warning  ; Output or bidir port (9 bits) is wider than the port expression (6 bits) it drives; bit(s) "y[8..6]" have no fanouts                       ;
 +------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:MEM_WB_wrmux"                                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; d    ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "d[4..1]" will be connected to GND. ;
-; q    ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[4..1]" have no fanouts                      ;
-+------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2437,15 +2568,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
 ; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[31..1]" have no fanouts ;
 +------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux"                                                                        ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                              ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
-; q    ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[4..1]" have no fanouts ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2485,13 +2607,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1"                                                                             ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[31..1]" have no fanouts ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1"                                                                                                  ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                     ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d[31..1]" will be connected to GND. ;
+; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "q[31..1]" have no fanouts                      ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -2501,6 +2624,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_3"                                                                                               ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                     ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d[31..5]" will be connected to GND. ;
+; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (5 bits) it drives; bit(s) "q[31..5]" have no fanouts                      ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2543,33 +2676,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"                                                                                                    ;
-+------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                    ;
-+------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-; d0   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "d0[4..1]" will be connected to GND. ;
-; d1   ; Input ; Info     ; Stuck at VCC                                                                                                                               ;
-+------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; d1   ; Input ; Info     ; Stuck at VCC                            ;
++------+-------+----------+-----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|alu:alu"                                                                                                            ;
-+--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                                                                                     ;
-+--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; a      ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "a[31..1]" will be connected to GND. ;
-; result ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "result[31..1]" have no fanouts                 ;
-+--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:srcbmux"                                                                                                     ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; d0   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "d0[31..1]" will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|alu:alu"                                                                                            ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                     ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; result ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "result[31..1]" have no fanouts ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2622,13 +2744,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+--------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp"                                                                           ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                  ; Type   ; Severity ; Details                                                                             ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; IF_ID_inst_out[15..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp"                                                                                                                                        ;
++-----------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                  ; Type   ; Severity ; Details                                                                                                                                          ;
++-----------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; IF_ID_inst_out[15..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                              ;
+; MEM_WB_wrmux_out      ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "MEM_WB_wrmux_out[4..1]" have no fanouts              ;
+; ID_EX_inst_3_out      ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "ID_EX_inst_3_out[4..1]" have no fanouts              ;
+; EX_MEM_wrmux_out      ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "EX_MEM_wrmux_out[4..1]" have no fanouts              ;
+; ForwardA              ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "ForwardA[1..1]" will be connected to GND. ;
+; ForwardB              ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "ForwardB[1..1]" will be connected to GND. ;
+; ForwardC              ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "ForwardC[1..1]" will be connected to GND. ;
++-----------------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2685,7 +2813,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri Nov 24 14:40:06 2017
+    Info: Processing started: Fri Nov 24 22:43:19 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS_System -c MIPS_System
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_mem_dual_port/ram2port_inst_data.v
@@ -2706,13 +2834,14 @@ Info (12021): Found 9 design units, including 9 entities, in source file /users/
     Info (12023): Found entity 7: flopr
     Info (12023): Found entity 8: flopenr
     Info (12023): Found entity 9: mux2
-Info (12021): Found 6 design units, including 6 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_cpu/mips.v
+Info (12021): Found 7 design units, including 7 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_cpu/mips.v
     Info (12023): Found entity 1: mips
-    Info (12023): Found entity 2: hazard_detection
-    Info (12023): Found entity 3: controller
-    Info (12023): Found entity 4: maindec
-    Info (12023): Found entity 5: aludec
-    Info (12023): Found entity 6: datapath
+    Info (12023): Found entity 2: forwarding
+    Info (12023): Found entity 3: hazard_detection
+    Info (12023): Found entity 4: controller
+    Info (12023): Found entity 5: maindec
+    Info (12023): Found entity 6: aludec
+    Info (12023): Found entity 7: datapath
 Warning (12019): Can't analyze file -- file ../MIPS_System/MIPS_CPU/delay.v is missing
 Info (12021): Found 2 design units, including 2 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/gpio/gpio.v
     Info (12023): Found entity 1: GPIO
@@ -2730,37 +2859,43 @@ Warning (10236): Verilog HDL Implicit Net warning at mips.v(41): created implici
 Warning (10236): Verilog HDL Implicit Net warning at mips.v(67): created implicit net for "ID_EX_C_memtoreg_out"
 Warning (10236): Verilog HDL Implicit Net warning at mips.v(68): created implicit net for "ID_EX_inst_1_out"
 Warning (10236): Verilog HDL Implicit Net warning at mips.v(69): created implicit net for "stall"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(128): created implicit net for "ID_EX_inst_3_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(129): created implicit net for "ID_EX_C_aluop_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(148): created implicit net for "ID_EX_C_branch_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(154): created implicit net for "EX_MEM_C_branch_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(279): created implicit net for "EX_MEM_pcadd2_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(292): created implicit net for "MEM_WB_C_regwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(298): created implicit net for "writedata"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(302): created implicit net for "ID_EX_inst_2_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(303): created implicit net for "ID_EX_C_regdst_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(307): created implicit net for "MEM_WB_alu_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(308): created implicit net for "MEM_WB_readdata_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(309): created implicit net for "MEM_WB_C_memtoreg_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(319): created implicit net for "ID_EX_C_shiftl16_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(324): created implicit net for "ID_EX_rd2_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(326): created implicit net for "ID_EX_C_alusrc_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(330): created implicit net for "ID_EX_rd1_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(333): created implicit net for "aluout"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(334): created implicit net for "zero"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(343): created implicit net for "MEM_WB_wrmux_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(417): created implicit net for "shiftl16"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(423): created implicit net for "regwrite"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(424): created implicit net for "ID_EX_C_regwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(429): created implicit net for "regdst"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(435): created implicit net for "alusrc"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(442): created implicit net for "memtoreg"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(449): created implicit net for "ID_EX_C_jump_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(454): created implicit net for "memwrite"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(455): created implicit net for "ID_EX_C_memwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(503): created implicit net for "EX_MEM_wrmux_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(509): created implicit net for "EX_MEM_C_regwrite_out"
-Warning (10236): Verilog HDL Implicit Net warning at mips.v(515): created implicit net for "EX_MEM_C_memtoreg_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(70): created implicit net for "EX_MEM_C_regwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(71): created implicit net for "MEM_WB_C_regwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(73): created implicit net for "MEM_WB_wrmux_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(74): created implicit net for "ID_EX_inst_3_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(75): created implicit net for "EX_MEM_wrmux_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(76): created implicit net for "ForwardA"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(77): created implicit net for "ForwardB"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(78): created implicit net for "ForwardC"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(194): created implicit net for "ID_EX_inst_3_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(195): created implicit net for "ID_EX_C_aluop_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(214): created implicit net for "ID_EX_C_branch_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(220): created implicit net for "EX_MEM_C_branch_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(348): created implicit net for "EX_MEM_pcadd2_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(367): created implicit net for "writedata"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(371): created implicit net for "ID_EX_inst_2_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(372): created implicit net for "ID_EX_C_regdst_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(376): created implicit net for "MEM_WB_alu_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(377): created implicit net for "MEM_WB_readdata_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(378): created implicit net for "MEM_WB_C_memtoreg_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(388): created implicit net for "ID_EX_C_shiftl16_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(395): created implicit net for "ID_EX_C_alusrc_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(402): created implicit net for "aluout"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(403): created implicit net for "zero"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(425): created implicit net for "ID_EX_rd2_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(492): created implicit net for "shiftl16"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(498): created implicit net for "regwrite"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(499): created implicit net for "ID_EX_C_regwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(504): created implicit net for "regdst"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(510): created implicit net for "alusrc"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(517): created implicit net for "memtoreg"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(524): created implicit net for "ID_EX_C_jump_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(529): created implicit net for "memwrite"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(530): created implicit net for "ID_EX_C_memwrite_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(541): created implicit net for "WB_ID_fwd_1_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(542): created implicit net for "ID_EX_rd1_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(547): created implicit net for "WB_ID_fwd_2_out"
+Warning (10236): Verilog HDL Implicit Net warning at mips.v(590): created implicit net for "EX_MEM_C_memtoreg_out"
 Info (12127): Elaborating entity "MIPS_System" for the top level hierarchy
 Info (12128): Elaborating entity "ALTPLL_clkgen" for hierarchy "ALTPLL_clkgen:pll0"
 Info (12128): Elaborating entity "altpll" for hierarchy "ALTPLL_clkgen:pll0|altpll:altpll_component"
@@ -2852,6 +2987,7 @@ Info (12128): Elaborating entity "alu" for hierarchy "mips:mips_cpu|datapath:dp|
 Info (12128): Elaborating entity "flopr" for hierarchy "mips:mips_cpu|datapath:dp|flopr:EX_MEM_wrmux"
 Info (12128): Elaborating entity "mux2" for hierarchy "mips:mips_cpu|datapath:dp|mux2:hzmux"
 Info (12128): Elaborating entity "hazard_detection" for hierarchy "mips:mips_cpu|hazard_detection:hd"
+Info (12128): Elaborating entity "forwarding" for hierarchy "mips:mips_cpu|forwarding:fw"
 Info (12128): Elaborating entity "ram2port_inst_data" for hierarchy "ram2port_inst_data:Inst_Data_Mem"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component"
@@ -2956,7 +3092,7 @@ Warning (14284): Synthesized away the following node(s):
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
         Warning (14320): Synthesized away node "ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated|wire_pll1_clk[0]"
-Warning (12241): 25 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 28 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3_D[0]" is stuck at GND
     Warning (13410): Pin "HEX3_D[1]" is stuck at GND
@@ -2996,7 +3132,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[7]" is stuck at VCC
     Warning (13410): Pin "LEDG[8]" is stuck at VCC
     Warning (13410): Pin "LEDG[9]" is stuck at VCC
-Info (17049): 526 registers lost all their fanouts during netlist optimizations.
+Info (17049): 527 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 14 input pin(s) that do not drive logic
@@ -3017,9 +3153,9 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
 Info (21057): Implemented 52 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 38 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 162 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 168 warnings
     Info: Peak virtual memory: 539 megabytes
-    Info: Processing ended: Fri Nov 24 14:40:09 2017
+    Info: Processing ended: Fri Nov 24 22:43:22 2017
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

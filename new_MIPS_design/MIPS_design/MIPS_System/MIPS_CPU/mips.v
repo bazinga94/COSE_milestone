@@ -66,10 +66,18 @@ module mips(input         clk, reset,
 	 .EX_MEM_C_memwrite_out   (memwrite),
 	 .ID_EX_C_memtoreg_out     (ID_EX_C_memtoreg_out),	      //for hazard_detection
 	 .ID_EX_inst_1_out 			(ID_EX_inst_1_out),				//for hazard_detection
-	 .stall				(stall)
+	 .stall				(stall),
+	 .EX_MEM_C_regwrite_out		(EX_MEM_C_regwrite_out), 		//for forwading
+	 .MEM_WB_C_regwrite_out		(MEM_WB_C_regwrite_out),		//...
+    //.ID_EX_inst_1_out			(ID_EX_inst_1_out), 
+	 .MEM_WB_wrmux_out			(MEM_WB_wrmux_out), 
+	 .ID_EX_inst_3_out			(ID_EX_inst_3_out), 				//...
+	 .EX_MEM_wrmux_out			(EX_MEM_wrmux_out),				//for forwading
+	 .ForwardA	(ForwardA),
+    .ForwardB	(ForwardB),
+    .ForwardC	(ForwardC)
 	 );
 	       
-
 	 hazard_detection hd(
     .ID_EX_C_memtoreg_out	(ID_EX_C_memtoreg_out), 
 	 .ID_EX_inst_1_out	   (ID_EX_inst_1_out), 
@@ -77,6 +85,64 @@ module mips(input         clk, reset,
 	 .IF_ID_inst_rt	(IF_ID_inst_out[20:16]),
     .stall				   (stall));    
 	 
+	 forwarding fw(
+    .EX_MEM_C_regwrite_out	(EX_MEM_C_regwrite_out), 
+    .MEM_WB_C_regwrite_out	(MEM_WB_C_regwrite_out),
+	 .ID_EX_inst_1_out	(ID_EX_inst_1_out),		//[20:16]
+	 .EX_MEM_wrmux_out	(EX_MEM_wrmux_out), 			//wrmux output
+	 .ID_EX_inst_3_out	(ID_EX_inst_3_out),      //[25:21]
+	 .MEM_WB_wrmux_out	(MEM_WB_wrmux_out),
+	 .ForwardA			(ForwardA),
+	 .ForwardB			(ForwardB),
+	 .ForwardC			(ForwardC),
+	 .instr_IFID_out_ra1		(IF_ID_inst_out[25:21]),
+	 .instr_IFID_out_ra2		(IF_ID_inst_out[20:16])    //no modify name
+    );
+endmodule
+
+module forwarding (
+						input EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out,
+						input [4:0] ID_EX_inst_1_out, MEM_WB_wrmux_out, ID_EX_inst_3_out, EX_MEM_wrmux_out,
+						input [4:0] instr_IFID_out_ra1, instr_IFID_out_ra2,
+						output reg [1:0] ForwardA, ForwardB, ForwardC
+                        );
+  // ForwardA
+  always @(*)
+  if(EX_MEM_C_regwrite_out & (EX_MEM_wrmux_out == ID_EX_inst_3_out))
+	ForwardA = 2'b10;
+ 
+  else if(MEM_WB_C_regwrite_out & (MEM_WB_wrmux_out == ID_EX_inst_3_out))
+	ForwardA = 2'b01;
+	
+  else if(MEM_WB_C_regwrite_out & ~(EX_MEM_C_regwrite_out & (EX_MEM_wrmux_out != ID_EX_inst_3_out)) & (MEM_WB_wrmux_out == ID_EX_inst_3_out))
+	ForwardA = 2'b01;
+  
+  else
+  	ForwardA = 2'b00;
+  
+  // ForwardB
+  always @(*)
+ if(EX_MEM_C_regwrite_out & (EX_MEM_wrmux_out == ID_EX_inst_1_out))
+	ForwardB = 2'b10;
+ 
+  else if(MEM_WB_C_regwrite_out & (MEM_WB_wrmux_out == ID_EX_inst_1_out))
+	ForwardB = 2'b01;
+	
+ 
+  else if(MEM_WB_C_regwrite_out & ~(EX_MEM_C_regwrite_out & (EX_MEM_wrmux_out != ID_EX_inst_1_out)) & (MEM_WB_wrmux_out == ID_EX_inst_1_out))
+	ForwardB = 2'b01;
+  else
+  	ForwardB = 2'b00;	
+  	
+  // ForwardC
+  always @(*)
+  if(MEM_WB_C_regwrite_out & (MEM_WB_wrmux_out == instr_IFID_out_ra1))
+	ForwardC = 2'b10;
+  else if(MEM_WB_C_regwrite_out & (MEM_WB_wrmux_out == instr_IFID_out_ra2))
+	ForwardC = 2'b01;
+  else
+	ForwardC = 2'b00;
+  	
 endmodule
 
 module hazard_detection (
@@ -237,7 +303,10 @@ module datapath(input         clk, reset,
                 output [31:0] EX_MEM_alu_out, EX_MEM_rd2_out,  //add f.f(wirtedata) wire
                 input  [31:0] readdata,
 					 output ID_EX_C_memtoreg_out,	      //for hazard_detection
-	             output ID_EX_inst_1_out				//for hazard_detection
+	             output ID_EX_inst_1_out,				//for hazard_detection + forwarding
+					 output EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out,		//for forwading
+				    output [4:0] MEM_WB_wrmux_out, ID_EX_inst_3_out, EX_MEM_wrmux_out,	//for forwarding
+					 input  [1:0]  ForwardA, ForwardB, ForwardC
 					 );
 
   wire [4:0]  writereg, wa_mux_result;
@@ -321,13 +390,13 @@ module datapath(input         clk, reset,
 
   // ALU logic
   mux2 #(32) srcbmux(
-    .d0 (ID_EX_rd2_out),
+    .d0 (MEM_WB_fwd_2_out),      //forwarding
     .d1 (shiftedimm[31:0]),
     .s  (ID_EX_C_alusrc_out),    //after ID_EX f.f
     .y  (srcb));
 
   alu alu(
-    .a       (ID_EX_rd1_out),
+    .a       (MEM_WB_fwd_1_out),  //forwarding
     .b       (srcb),
     .alucont (alucontrol),
     .result  (aluout),
@@ -398,6 +467,12 @@ module datapath(input         clk, reset,
 	 .d     (IF_ID_inst_out[15:11]), 
 	 .q     (ID_EX_inst_2_out));
 	 
+	 flopr #(32) ID_EX_inst_3 (
+	 .clk   (clk), 
+	 .reset (reset), 
+	 .d     (IF_ID_inst_out[25:21]), 
+	 .q     (ID_EX_inst_3_out));
+	 
 	 //wire [31:0] ID_EX_shiftedimm_out; 
 	 //flopr #(32) ID_EX_shiftedimm (
 	 //.clk   (clk), 
@@ -463,13 +538,13 @@ module datapath(input         clk, reset,
 	 flopr #(32) ID_EX_rd1 (    //read data start
 	 .clk   (clk), 
 	 .reset (reset), 
-	 .d     (srca), 
+	 .d     (WB_ID_fwd_1_out),   //forwarding
 	 .q     (ID_EX_rd1_out));
 	 
 	 flopr #(32) ID_EX_rd2 (
 	 .clk   (clk), 
 	 .reset (reset), 
-	 .d     (writedata), 
+	 .d     (WB_ID_fwd_2_out), 
 	 .q     (ID_EX_rd2_out));    //read data end
 	 
 	 flopr #(32) EX_MEM_pcadd2 (
@@ -555,5 +630,46 @@ module datapath(input         clk, reset,
     .d1    (9'b0),
     .s     (stall),
     .y     ({memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16}));   //alucontrol????? jump X.... why...
+	 
+	 // Before ALU MUX
+    wire [31:0] EX_MEM_fwd_1_out;
+    mux2 #(32)  EX_MEM_fwd_1(
+	 .d0 (ID_EX_rd1_out), 		
+    .d1 (EX_MEM_alu_out), 
+	 .s  (ForwardA[1]), 
+	 .y  (EX_MEM_fwd_1_out));
+  
+    wire [31:0] MEM_WB_fwd_1_out;
+    mux2 #(32) MEM_WB_fwd_1(
+	 .d0 (EX_MEM_fwd_1_out), 
+	 .d1 (result), 
+	 .s  (ForwardA[0]), 
+	 .y  (MEM_WB_fwd_1_out));							
+								
+    wire [31:0] EX_MEM_fwd_2_out;
+    mux2 #(32)  EX_MEM_fwd_2(
+	 .d0 (ID_EX_rd2_out), 
+	 .d1 (EX_MEM_alu_out), 
+	 .s  (ForwardB[1]), 
+	 .y  (EX_MEM_fwd_2_out));	
+							
+    wire [31:0] MEM_WB_fwd_2_out;
+    mux2 #(32)  MEM_WB_fwd_2(
+	 .d0 (EX_MEM_fwd_2_out), 
+	 .d1 (result), 
+	 .s  (ForwardB[0]), 
+	 .y  (MEM_WB_fwd_2_out));
+	 
+	 mux2 #(32)  WB_ID_fwd_1(
+	 .d0 (srca), 
+	 .d1 (result), 
+	 .s  (ForwardC[1]), 
+	 .y  (WB_ID_fwd_1_out));
+							
+    mux2 #(32)  WB_ID_fwd_2(
+	 .d0 (writedata), 
+	 .d1 (result), 
+	 .s  (ForwardC[0]), 
+	 .y  (WB_ID_fwd_2_out));
 	 // ###### Jongho Lee: End #######
 endmodule
