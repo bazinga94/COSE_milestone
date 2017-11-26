@@ -16,12 +16,20 @@ module mips(input         clk, reset,
             output [31:0] memwritedata,
             input  [31:0] memreaddata);
 
-  wire        signext, shiftl16, memtoreg, branch;
+  wire        signext, hz_shiftl16, hz_memtoreg, branch;
   wire        pcsrc, zero;
-  wire        alusrc, regdst, regwrite, jump;
+  wire        hz_alusrc, hz_regdst, hz_regwrite, jump;
   wire [2:0]  alucontrol;
   wire [31:0] IF_ID_inst_out;  //add f.f wire
-
+  wire		  hz_memwrite;
+  wire		  EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out;
+  wire [4:0]  EX_MEM_wrmux_out, ID_EX_inst_1_out, ID_EX_inst_3_out;
+  wire [4:0]  MEM_WB_wrmux_out;
+  wire 		  ID_EX_C_memtoreg_out;
+  wire		  stall;
+  wire [1:0]  ForwardA, ForwardB, ForwardC;	  
+  
+  
   // Instantiate Controller
   controller c(
   // ###### jongho lee: Start #######
@@ -191,7 +199,7 @@ module controller(input        clk, reset,  //add clk, reset
     .aluop    (aluop));
 
   aludec ad( 
-    .funct      (ID_EX_inst_3_out),
+    .funct      (funct),
     .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
 	 
@@ -199,13 +207,13 @@ module controller(input        clk, reset,  //add clk, reset
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (aluop[1:0]), 
-	 .q     (ID_EX_C_aluop_out));  //control aluop f.f add
+	 .q     (ID_EX_C_aluop_out));  //control aluop f.f add?????
 	 
-  flopr #(32) ID_EX_inst_3 (
-    .clk   (clk), 
-	 .reset (reset), 
-	 .d     (funct), 
-	 .q     (ID_EX_inst_3_out)); 
+  //flopr #(32) ID_EX_inst_3 (
+    //.clk   (clk), 
+	 //.reset (reset), 
+	 //.d     (funct), 
+	 //.q     (ID_EX_inst_3_out)); 		//????
 	 
   flopr #(1) ID_EX_C_branch (
 	 .clk   (clk), 
@@ -303,10 +311,10 @@ module datapath(input         clk, reset,
                 output [31:0] EX_MEM_alu_out, EX_MEM_rd2_out,  //add f.f(wirtedata) wire
                 input  [31:0] readdata,
 					 output ID_EX_C_memtoreg_out,	      //for hazard_detection
-	             output ID_EX_inst_1_out,				//for hazard_detection + forwarding
+	             output [4:0]  ID_EX_inst_1_out,				//for hazard_detection + forwarding
 					 output EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out,		//for forwading
 				    output [4:0] MEM_WB_wrmux_out, ID_EX_inst_3_out, EX_MEM_wrmux_out,	//for forwarding
-					 input  [1:0]  ForwardA, ForwardB, ForwardC
+					 input  [1:0]  ForwardA, ForwardB, ForwardC  //reg problem???
 					 );
 
   wire [4:0]  writereg, wa_mux_result;
@@ -441,14 +449,14 @@ module datapath(input         clk, reset,
 	 .d     (pcplus4),
 	 .q     (IF_ID_pcplus4_out));
 	 
-	 wire [31:0] ID_EX_pcplus4_out;
+	 //wire [31:0] ID_EX_pcplus4_out;
     flopr #(32) ID_EX_pcplus4 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_pcplus4_out), 
 	 .q     (ID_EX_pcplus4_out));	
 	 
-	 wire [31:0] ID_EX_signimm_out;
+	 //wire [31:0] ID_EX_signimm_out;
 	 flopr #(32) ID_EX_signimm (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -639,7 +647,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardA[1]), 
 	 .y  (EX_MEM_fwd_1_out));
   
-    wire [31:0] MEM_WB_fwd_1_out;
+    //wire [31:0] MEM_WB_fwd_1_out;
     mux2 #(32) MEM_WB_fwd_1(
 	 .d0 (EX_MEM_fwd_1_out), 
 	 .d1 (result), 
@@ -653,7 +661,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardB[1]), 
 	 .y  (EX_MEM_fwd_2_out));	
 							
-    wire [31:0] MEM_WB_fwd_2_out;
+    //wire [31:0] MEM_WB_fwd_2_out;
     mux2 #(32)  MEM_WB_fwd_2(
 	 .d0 (EX_MEM_fwd_2_out), 
 	 .d1 (result), 
