@@ -202,7 +202,8 @@ module controller(input        clk, reset,  //add clk, reset
     .funct      (funct),
     .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
-  wire [1:0] ID_EX_C_aluop_out;	 
+	 
+  //wire [1:0] ID_EX_C_aluop_out;	 
   flopr #(2) ID_EX_C_aluop (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -451,14 +452,14 @@ module datapath(input         clk, reset,
 	 .d     (pcplus4),
 	 .q     (IF_ID_pcplus4_out));
 	 
-	 wire [31:0] ID_EX_pcplus4_out;
+	 //wire [31:0] ID_EX_pcplus4_out;
     flopr #(32) ID_EX_pcplus4 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_pcplus4_out), 
 	 .q     (ID_EX_pcplus4_out));	
 	 
-	 wire [31:0] ID_EX_signimm_out;
+	 //wire [31:0] ID_EX_signimm_out;
 	 flopr #(32) ID_EX_signimm (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -649,7 +650,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardA[1]), 
 	 .y  (EX_MEM_fwd_1_out));
   
-    wire [31:0] MEM_WB_fwd_1_out;
+    //wire [31:0] MEM_WB_fwd_1_out;
     mux2 #(32) MEM_WB_fwd_1(
 	 .d0 (EX_MEM_fwd_1_out), 
 	 .d1 (result), 
@@ -663,7 +664,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardB[1]), 
 	 .y  (EX_MEM_fwd_2_out));	
 							
-    wire [31:0] MEM_WB_fwd_2_out;
+    //wire [31:0] MEM_WB_fwd_2_out;
     mux2 #(32)  MEM_WB_fwd_2(
 	 .d0 (EX_MEM_fwd_2_out), 
 	 .d1 (result), 
