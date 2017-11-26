@@ -24,7 +24,7 @@ entity datapath is
         EX_MEM_rd2_out  : out    vl_logic_vector(31 downto 0);
         readdata        : in     vl_logic_vector(31 downto 0);
         ID_EX_C_memtoreg_out: out    vl_logic;
-        ID_EX_inst_1_out: out    vl_logic;
+        ID_EX_inst_1_out: out    vl_logic_vector(4 downto 0);
         EX_MEM_C_regwrite_out: out    vl_logic;
         MEM_WB_C_regwrite_out: out    vl_logic;
         MEM_WB_wrmux_out: out    vl_logic_vector(4 downto 0);

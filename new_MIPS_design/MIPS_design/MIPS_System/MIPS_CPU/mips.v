@@ -202,7 +202,7 @@ module controller(input        clk, reset,  //add clk, reset
     .funct      (funct),
     .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
-	 
+  wire [1:0] ID_EX_C_aluop_out;	 
   flopr #(2) ID_EX_C_aluop (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -214,13 +214,13 @@ module controller(input        clk, reset,  //add clk, reset
 	 //.reset (reset), 
 	 //.d     (funct), 
 	 //.q     (ID_EX_inst_3_out)); 		//????
-	 
+  wire ID_EX_C_branch_out;	 
   flopr #(1) ID_EX_C_branch (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (branch), 
 	 .q     (ID_EX_C_branch_out));
-	 
+  wire EX_MEM_C_branch_out;
   flopr #(1) EX_MEM_C_branch (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -323,11 +323,13 @@ module datapath(input         clk, reset,
   wire [31:0] srca, srcb;
   wire [31:0] result, jr_pc_result, ra1_mux_result, wd_mux_result;
   wire        shift;
+  wire zero;
+  wire memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16;
+  //wire [2:0] alucontrol; 
   
-  // ###### jongho lee: Start ####### 
   wire [31:0] IF_ID_pcplus4_out;    //add f.f wire
-  //wire [31:0] ID_EX_rd2_out;
-  // ###### jongho lee: End #######
+  wire [31:0] ID_EX_rd2_out, aluout;
+  
   
   // next PC logic
   flopenr #(32) pcreg(   //for stall pc
@@ -449,14 +451,14 @@ module datapath(input         clk, reset,
 	 .d     (pcplus4),
 	 .q     (IF_ID_pcplus4_out));
 	 
-	 //wire [31:0] ID_EX_pcplus4_out;
+	 wire [31:0] ID_EX_pcplus4_out;
     flopr #(32) ID_EX_pcplus4 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_pcplus4_out), 
 	 .q     (ID_EX_pcplus4_out));	
 	 
-	 //wire [31:0] ID_EX_signimm_out;
+	 wire [31:0] ID_EX_signimm_out;
 	 flopr #(32) ID_EX_signimm (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -647,7 +649,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardA[1]), 
 	 .y  (EX_MEM_fwd_1_out));
   
-    //wire [31:0] MEM_WB_fwd_1_out;
+    wire [31:0] MEM_WB_fwd_1_out;
     mux2 #(32) MEM_WB_fwd_1(
 	 .d0 (EX_MEM_fwd_1_out), 
 	 .d1 (result), 
@@ -661,7 +663,7 @@ module datapath(input         clk, reset,
 	 .s  (ForwardB[1]), 
 	 .y  (EX_MEM_fwd_2_out));	
 							
-    //wire [31:0] MEM_WB_fwd_2_out;
+    wire [31:0] MEM_WB_fwd_2_out;
     mux2 #(32)  MEM_WB_fwd_2(
 	 .d0 (EX_MEM_fwd_2_out), 
 	 .d1 (result), 
