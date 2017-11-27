@@ -14,6 +14,8 @@ entity datapath is
         hz_regwrite     : in     vl_logic;
         jump            : in     vl_logic;
         hz_memwrite     : in     vl_logic;
+        hz_aluop        : in     vl_logic_vector(1 downto 0);
+        aluop           : out    vl_logic_vector(1 downto 0);
         EX_MEM_C_memwrite_out: out    vl_logic;
         alucontrol      : in     vl_logic_vector(2 downto 0);
         EX_MEM_alu_zero_out: out    vl_logic;
@@ -32,6 +34,7 @@ entity datapath is
         EX_MEM_wrmux_out: out    vl_logic_vector(4 downto 0);
         ForwardA        : in     vl_logic_vector(1 downto 0);
         ForwardB        : in     vl_logic_vector(1 downto 0);
-        ForwardC        : in     vl_logic_vector(1 downto 0)
+        ForwardC        : in     vl_logic_vector(1 downto 0);
+        ID_EX_signimm_out: out    vl_logic_vector(5 downto 0)
     );
 end datapath;

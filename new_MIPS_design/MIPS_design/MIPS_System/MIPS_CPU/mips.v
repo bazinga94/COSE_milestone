@@ -27,8 +27,9 @@ module mips(input         clk, reset,
   wire [4:0]  MEM_WB_wrmux_out;
   wire 		  ID_EX_C_memtoreg_out;
   wire		  stall;
-  wire [1:0]  ForwardA, ForwardB, ForwardC;	  
-  
+  wire [1:0]  ForwardA, ForwardB, ForwardC;	
+  wire [1:0]  aluop, hz_aluop;  
+  wire [5:0]  ID_EX_signimm_out;
   
   // Instantiate Controller
   controller c(
@@ -47,8 +48,11 @@ module mips(input         clk, reset,
 		.hz_alusrc     (hz_alusrc),
 		.hz_regdst     (hz_regdst),
 		.hz_regwrite   (hz_regwrite),
+		.hz_aluop      (hz_aluop),
+		.aluop_in         (aluop),
 		.jump       (jump),
-		.alucontrol (alucontrol));
+		.alucontrol (alucontrol),
+		.ID_EX_signimm_out   (ID_EX_signimm_out));
 
   // Instantiate Datapath
   datapath dp(
@@ -62,6 +66,8 @@ module mips(input         clk, reset,
     .hz_regdst     (hz_regdst),
     .hz_regwrite   (hz_regwrite),
 	 .hz_memwrite   (hz_memwrite),
+	 .hz_aluop      (hz_aluop),
+	 .aluop         (aluop),
     .jump       (jump),
     .alucontrol (alucontrol),
     .EX_MEM_alu_zero_out       (zero),
@@ -83,7 +89,8 @@ module mips(input         clk, reset,
 	 .EX_MEM_wrmux_out			(EX_MEM_wrmux_out),				//for forwading
 	 .ForwardA	(ForwardA),
     .ForwardB	(ForwardB),
-    .ForwardC	(ForwardC)
+    .ForwardC	(ForwardC),
+	 .ID_EX_signimm_out   (ID_EX_signimm_out),
 	 );
 	       
 	 hazard_detection hd(
@@ -173,17 +180,21 @@ module hazard_detection (
 module controller(input        clk, reset,  //add clk, reset
 						input  [5:0] op, funct,
                   input        zero,
+						input	 [1:0] aluop_in,
                   output       signext,
                   output       hz_shiftl16,
                   output       hz_memtoreg, hz_memwrite,
                   output       pcsrc, hz_alusrc,
                   output       hz_regdst, hz_regwrite,
                   output       jump,
-                  output [2:0] alucontrol);
+                  output [2:0] alucontrol,
+						output [1:0] hz_aluop,
+						input [5:0] ID_EX_signimm_out);
 
-  wire [1:0] aluop;
+  //wire [1:0] aluop;
   wire       branch;
-
+  wire[5:0] ID_EX_inst_3_out;
+  wire [1:0] ID_EX_C_aluop_out;	
   maindec md(
     .op       (op),
 	 .funct	  (funct),   //add funct
@@ -196,25 +207,25 @@ module controller(input        clk, reset,  //add clk, reset
     .regdst   (hz_regdst),
     .regwrite (hz_regwrite),
     .jump     (jump),
-    .aluop    (aluop));
+    .aluop    (hz_aluop));
 
   aludec ad( 
-    .funct      (funct),
+    .funct      (ID_EX_signimm_out[5:0]),   // bit should pass ID_EX
     .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
 	 
-  //wire [1:0] ID_EX_C_aluop_out;	 
   flopr #(2) ID_EX_C_aluop (
 	 .clk   (clk), 
 	 .reset (reset), 
-	 .d     (aluop[1:0]), 
+	 .d     (aluop_in[1:0]), 
 	 .q     (ID_EX_C_aluop_out));  //control aluop f.f add?????
 	 
-  //flopr #(32) ID_EX_inst_3 (
+  //flopr #(6) ID_EX_inst_3 (
     //.clk   (clk), 
 	 //.reset (reset), 
-	 //.d     (funct), 
-	 //.q     (ID_EX_inst_3_out)); 		//????
+	 //.d     (ID_EX_signimm_out[5:0]), 
+	 //.q     (ID_EX_inst_3_out[5:0])); 		//no need
+	 
   wire ID_EX_C_branch_out;	 
   flopr #(1) ID_EX_C_branch (
 	 .clk   (clk), 
@@ -303,6 +314,8 @@ module datapath(input         clk, reset,
                 input         hz_alusrc, hz_regdst,
                 input         hz_regwrite, jump,
 					 input			hz_memwrite, 				//add input memwrite
+					 input  [1:0]  hz_aluop,
+					 output [1:0]  aluop,
 					 output			EX_MEM_C_memwrite_out,
                 input  [2:0]  alucontrol,
                 output        EX_MEM_alu_zero_out,  //add EX_MEM f.f
@@ -315,23 +328,25 @@ module datapath(input         clk, reset,
 	             output [4:0]  ID_EX_inst_1_out,				//for hazard_detection + forwarding
 					 output EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out,		//for forwading
 				    output [4:0] MEM_WB_wrmux_out, ID_EX_inst_3_out, EX_MEM_wrmux_out,	//for forwarding
-					 input  [1:0]  ForwardA, ForwardB, ForwardC  //reg problem???
+					 input  [1:0]  ForwardA, ForwardB, ForwardC,  //reg problem???
+					 output [5:0] ID_EX_signimm_out  //to aludec
 					 );
 
   wire [4:0]  writereg, wa_mux_result;
   wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch;
   wire [31:0] signimm, signimmsh, shiftedimm;
   wire [31:0] srca, srcb, writedata;  //WB_ID_fwd_2 mistake!!!!
-  wire [31:0] result, jr_pc_result, ra1_mux_result, wd_mux_result;
-  wire        shift;
+  wire [31:0] result, jr_pc_result, wd_mux_result;
+  wire [4:0] ra1_mux_result; //5 wires !!!
+  //wire        shift; there is no shift......
   wire zero;
   wire memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16;
   //wire [2:0] alucontrol; 
   wire [31:0] IF_ID_pcplus4_out;    //add f.f wire
   wire [31:0] ID_EX_rd2_out, aluout;
   wire [31:0] ID_EX_pcplus4_out;
-  wire [31:0] ID_EX_signimm_out;  //add
-  wire [31:0] ID_EX_inst_2_out;  //add
+  //wire [31:0] ID_EX_signimm_out;  //add  ??? because output??
+  wire [4:0] ID_EX_inst_2_out;  //add
   wire ID_EX_C_shiftl16_out;
   wire ID_EX_C_regwrite_out;
   wire ID_EX_C_regdst_out;
@@ -482,21 +497,21 @@ module datapath(input         clk, reset,
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (signimm[31:0]), 
-	 .q     (ID_EX_signimm_out));
+	 .q     (ID_EX_signimm_out));    //aludec!!!!!!
 	 
-	 flopr #(32) ID_EX_inst_1 (
+	 flopr #(5) ID_EX_inst_1 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_inst_out[20:16]), 
 	 .q     (ID_EX_inst_1_out));
 	 
-	 flopr #(32) ID_EX_inst_2 (
+	 flopr #(5) ID_EX_inst_2 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_inst_out[15:11]), 
 	 .q     (ID_EX_inst_2_out));
 	 
-	 flopr #(32) ID_EX_inst_3 (
+	 flopr #(5) ID_EX_inst_3 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_inst_out[25:21]), 
@@ -654,11 +669,11 @@ module datapath(input         clk, reset,
 	 .d     (EX_MEM_C_memtoreg_out), 
 	 .q     (MEM_WB_C_memtoreg_out));
 	 
-	 mux2  #(9)  hzmux( 
-	 .d0    ({hz_memtoreg, hz_regwrite, hz_memwrite, hz_alusrc, hz_regdst, hz_shiftl16}),
-    .d1    (9'b0),
+	 mux2  #(8)  hzmux( 
+	 .d0    ({hz_memtoreg, hz_regwrite, hz_memwrite, hz_alusrc, hz_regdst, hz_shiftl16, hz_aluop[1:0]}),
+    .d1    (8'b0),
     .s     (stall),
-    .y     ({memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16}));   //alucontrol????? jump X.... why...
+    .y     ({memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16, aluop[1:0]}));   //aluop????? jump X.... why...
 	 
 	 // Before ALU MUX
     mux2 #(32)  EX_MEM_fwd_1(

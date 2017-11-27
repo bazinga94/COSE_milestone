@@ -7,6 +7,7 @@ entity controller is
         op              : in     vl_logic_vector(5 downto 0);
         funct           : in     vl_logic_vector(5 downto 0);
         zero            : in     vl_logic;
+        aluop_in        : in     vl_logic_vector(1 downto 0);
         signext         : out    vl_logic;
         hz_shiftl16     : out    vl_logic;
         hz_memtoreg     : out    vl_logic;
@@ -16,6 +17,8 @@ entity controller is
         hz_regdst       : out    vl_logic;
         hz_regwrite     : out    vl_logic;
         jump            : out    vl_logic;
-        alucontrol      : out    vl_logic_vector(2 downto 0)
+        alucontrol      : out    vl_logic_vector(2 downto 0);
+        hz_aluop        : out    vl_logic_vector(1 downto 0);
+        ID_EX_signimm_out: in     vl_logic_vector(5 downto 0)
     );
 end controller;
