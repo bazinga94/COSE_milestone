@@ -321,16 +321,35 @@ module datapath(input         clk, reset,
   wire [4:0]  writereg, wa_mux_result;
   wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch;
   wire [31:0] signimm, signimmsh, shiftedimm;
-  wire [31:0] srca, srcb;
+  wire [31:0] srca, srcb, writedata;  //WB_ID_fwd_2 mistake!!!!
   wire [31:0] result, jr_pc_result, ra1_mux_result, wd_mux_result;
   wire        shift;
   wire zero;
   wire memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16;
   //wire [2:0] alucontrol; 
-  
   wire [31:0] IF_ID_pcplus4_out;    //add f.f wire
   wire [31:0] ID_EX_rd2_out, aluout;
-  
+  wire [31:0] ID_EX_pcplus4_out;
+  wire [31:0] ID_EX_signimm_out;  //add
+  wire [31:0] ID_EX_inst_2_out;  //add
+  wire ID_EX_C_shiftl16_out;
+  wire ID_EX_C_regwrite_out;
+  wire ID_EX_C_regdst_out;
+  wire ID_EX_C_alusrc_out;
+  wire ID_EX_C_jump_out;
+  wire ID_EX_C_memwrite_out;
+  wire [31:0] ID_EX_rd1_out;
+  wire [31:0] EX_MEM_pcadd2_out;
+  wire EX_MEM_C_memtoreg_out;
+  wire [31:0] MEM_WB_readdata_out;
+  wire [31:0] MEM_WB_alu_out;
+  wire MEM_WB_C_memtoreg_out;
+  wire [31:0] EX_MEM_fwd_1_out;
+  wire [31:0] MEM_WB_fwd_1_out;
+  wire [31:0] EX_MEM_fwd_2_out;
+  wire [31:0] MEM_WB_fwd_2_out;
+  wire [31:0] WB_ID_fwd_1_out;
+  wire [31:0] WB_ID_fwd_2_out;
   
   // next PC logic
   flopenr #(32) pcreg(   //for stall pc
@@ -452,14 +471,13 @@ module datapath(input         clk, reset,
 	 .d     (pcplus4),
 	 .q     (IF_ID_pcplus4_out));
 	 
-	 //wire [31:0] ID_EX_pcplus4_out;
+	 //wire [31:0] ID_EX_pcplus4_out;  //add
     flopr #(32) ID_EX_pcplus4 (
 	 .clk   (clk), 
 	 .reset (reset), 
 	 .d     (IF_ID_pcplus4_out), 
 	 .q     (ID_EX_pcplus4_out));	
 	 
-	 //wire [31:0] ID_EX_signimm_out;
 	 flopr #(32) ID_EX_signimm (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -521,7 +539,7 @@ module datapath(input         clk, reset,
 	 .d     (alusrc), 
 	 .q     (ID_EX_C_alusrc_out));
 	 
-	 
+	 //wire ID_EX_C_memtoreg_out; //output
 	 flopr #(1) ID_EX_C_memtoreg (
 	 .clk   (clk), 
 	 .reset (reset), 
@@ -643,40 +661,36 @@ module datapath(input         clk, reset,
     .y     ({memtoreg, regwrite, memwrite, alusrc, regdst, shiftl16}));   //alucontrol????? jump X.... why...
 	 
 	 // Before ALU MUX
-    wire [31:0] EX_MEM_fwd_1_out;
     mux2 #(32)  EX_MEM_fwd_1(
 	 .d0 (ID_EX_rd1_out), 		
     .d1 (EX_MEM_alu_out), 
 	 .s  (ForwardA[1]), 
 	 .y  (EX_MEM_fwd_1_out));
   
-    //wire [31:0] MEM_WB_fwd_1_out;
     mux2 #(32) MEM_WB_fwd_1(
 	 .d0 (EX_MEM_fwd_1_out), 
 	 .d1 (result), 
 	 .s  (ForwardA[0]), 
 	 .y  (MEM_WB_fwd_1_out));							
 								
-    wire [31:0] EX_MEM_fwd_2_out;
     mux2 #(32)  EX_MEM_fwd_2(
 	 .d0 (ID_EX_rd2_out), 
 	 .d1 (EX_MEM_alu_out), 
 	 .s  (ForwardB[1]), 
 	 .y  (EX_MEM_fwd_2_out));	
 							
-    //wire [31:0] MEM_WB_fwd_2_out;
     mux2 #(32)  MEM_WB_fwd_2(
 	 .d0 (EX_MEM_fwd_2_out), 
 	 .d1 (result), 
 	 .s  (ForwardB[0]), 
 	 .y  (MEM_WB_fwd_2_out));
-	 
+	
 	 mux2 #(32)  WB_ID_fwd_1(
 	 .d0 (srca), 
 	 .d1 (result), 
 	 .s  (ForwardC[1]), 
 	 .y  (WB_ID_fwd_1_out));
-							
+    
     mux2 #(32)  WB_ID_fwd_2(
 	 .d0 (writedata), 
 	 .d1 (result), 
