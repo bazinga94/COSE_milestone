@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS_System
-Mon Nov 27 22:08:55 2017
+Tue Nov 28 19:23:13 2017
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -103,17 +103,14 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  95. Port Connectivity Checks: "ram2port_inst_data:Inst_Data_Mem"
  96. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:hzmux"
  97. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_C_jump"
- 98. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm"
- 99. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:jr_pc_mux"
-100. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:ra1_mux"
-101. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"
-102. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|shift_left_16:sl16"
-103. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|sl2:immsh"
-104. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
-105. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
-106. Port Connectivity Checks: "mips:mips_cpu"
-107. Elapsed Time Per Partition
-108. Analysis & Synthesis Messages
+ 98. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:jr_pc_mux"
+ 99. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:ra1_mux"
+100. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:wa_mux"
+101. Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1"
+102. Port Connectivity Checks: "mips:mips_cpu|datapath:dp"
+103. Port Connectivity Checks: "mips:mips_cpu"
+104. Elapsed Time Per Partition
+105. Analysis & Synthesis Messages
 
 
 
@@ -139,15 +136,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 27 22:08:55 2017      ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 28 19:23:13 2017      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; MIPS_System                                ;
 ; Top-level Entity Name              ; MIPS_System                                ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 3,484                                      ;
+; Total logic elements               ; 3,489                                      ;
 ;     Total combinational functions  ; 2,328                                      ;
-;     Dedicated logic registers      ; 1,687                                      ;
-; Total registers                    ; 1687                                       ;
+;     Dedicated logic registers      ; 1,693                                      ;
+; Total registers                    ; 1693                                       ;
 ; Total pins                         ; 52                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 65,536                                     ;
@@ -291,20 +288,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                           ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 3,484                                                                                           ;
+; Estimated Total logic elements              ; 3,489                                                                                           ;
 ;                                             ;                                                                                                 ;
 ; Total combinational functions               ; 2328                                                                                            ;
 ; Logic element usage by number of LUT inputs ;                                                                                                 ;
-;     -- 4 input functions                    ; 1674                                                                                            ;
-;     -- 3 input functions                    ; 489                                                                                             ;
-;     -- <=2 input functions                  ; 165                                                                                             ;
+;     -- 4 input functions                    ; 1744                                                                                            ;
+;     -- 3 input functions                    ; 444                                                                                             ;
+;     -- <=2 input functions                  ; 140                                                                                             ;
 ;                                             ;                                                                                                 ;
 ; Logic elements by mode                      ;                                                                                                 ;
 ;     -- normal mode                          ; 2207                                                                                            ;
 ;     -- arithmetic mode                      ; 121                                                                                             ;
 ;                                             ;                                                                                                 ;
-; Total registers                             ; 1687                                                                                            ;
-;     -- Dedicated logic registers            ; 1687                                                                                            ;
+; Total registers                             ; 1693                                                                                            ;
+;     -- Dedicated logic registers            ; 1693                                                                                            ;
 ;     -- I/O registers                        ; 0                                                                                               ;
 ;                                             ;                                                                                                 ;
 ; I/O pins                                    ; 52                                                                                              ;
@@ -314,9 +311,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1                                                                                               ;
 ;                                             ;                                                                                                 ;
 ; Maximum fan-out node                        ; ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 1721                                                                                            ;
-; Total fan-out                               ; 14505                                                                                           ;
-; Average fan-out                             ; 3.49                                                                                            ;
+; Maximum fan-out                             ; 1727                                                                                            ;
+; Total fan-out                               ; 14619                                                                                           ;
+; Average fan-out                             ; 3.52                                                                                            ;
 +---------------------------------------------+-------------------------------------------------------------------------------------------------+
 
 
@@ -325,7 +322,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Library Name ;
 +------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
-; |MIPS_System                                   ; 2328 (31)         ; 1687 (1)     ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
+; |MIPS_System                                   ; 2328 (31)         ; 1693 (1)     ; 65536       ; 0            ; 0       ; 0         ; 52   ; 0            ; |MIPS_System                                                                                                 ; work         ;
 ;    |ALTPLL_clkgen:pll0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0                                                                              ; work         ;
 ;       |altpll:altpll_component|                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component                                                      ; work         ;
 ;          |ALTPLL_clkgen_altpll:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ALTPLL_clkgen:pll0|altpll:altpll_component|ALTPLL_clkgen_altpll:auto_generated                  ; work         ;
@@ -344,15 +341,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |pulse_gen:sw8|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw8                                                                        ; work         ;
 ;       |pulse_gen:sw9|                          ; 15 (15)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|GPIO:uGPIO|pulse_gen:sw9                                                                        ; work         ;
 ;    |TimerCounter:Timer|                        ; 84 (84)           ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|TimerCounter:Timer                                                                              ; work         ;
-;    |mips:mips_cpu|                             ; 1977 (0)          ; 1391 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
-;       |controller:c|                           ; 26 (1)            ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
+;    |mips:mips_cpu|                             ; 1977 (0)          ; 1397 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu                                                                                   ; work         ;
+;       |controller:c|                           ; 27 (1)            ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c                                                                      ; work         ;
 ;          |aludec:ad|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad                                                            ; work         ;
 ;          |flopr:EX_MEM_C_branch|               ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|flopr:EX_MEM_C_branch                                                ; work         ;
 ;          |flopr:ID_EX_C_aluop|                 ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop                                                  ; work         ;
 ;          |flopr:ID_EX_C_branch|                ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|flopr:ID_EX_C_branch                                                 ; work         ;
-;          |maindec:md|                          ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
-;       |datapath:dp|                            ; 1920 (1)          ; 1387 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
-;          |alu:alu|                             ; 149 (149)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu                                                               ; work         ;
+;          |maindec:md|                          ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|controller:c|maindec:md                                                           ; work         ;
+;       |datapath:dp|                            ; 1924 (1)          ; 1393 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp                                                                       ; work         ;
+;          |alu:alu|                             ; 141 (141)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu                                                               ; work         ;
 ;          |flopenr:IF_ID_inst|                  ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:IF_ID_inst                                                    ; work         ;
 ;          |flopenr:IF_ID_pcplus4|               ; 31 (31)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:IF_ID_pcplus4                                                 ; work         ;
 ;          |flopenr:pcreg|                       ; 7 (7)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg                                                         ; work         ;
@@ -376,7 +373,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |flopr:ID_EX_pcplus4|                 ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_pcplus4                                                   ; work         ;
 ;          |flopr:ID_EX_rd1|                     ; 5 (5)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1                                                       ; work         ;
 ;          |flopr:ID_EX_rd2|                     ; 6 (6)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2                                                       ; work         ;
-;          |flopr:ID_EX_signimm|                 ; 0 (0)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm                                                   ; work         ;
+;          |flopr:ID_EX_signimm|                 ; 0 (0)             ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm                                                   ; work         ;
 ;          |flopr:MEM_WB_C_memtoreg|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_memtoreg                                               ; work         ;
 ;          |flopr:MEM_WB_C_regwrite|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_C_regwrite                                               ; work         ;
 ;          |flopr:MEM_WB_alu|                    ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_alu                                                      ; work         ;
@@ -389,12 +386,12 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |mux2:pcmux|                          ; 54 (54)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:pcmux                                                            ; work         ;
 ;          |mux2:ra1_mux|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:ra1_mux                                                          ; work         ;
 ;          |mux2:resmux|                         ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:resmux                                                           ; work         ;
-;          |mux2:srcbmux|                        ; 72 (72)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux                                                          ; work         ;
-;          |mux2:wa_mux|                         ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wa_mux                                                           ; work         ;
+;          |mux2:srcbmux|                        ; 90 (90)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux                                                          ; work         ;
 ;          |mux2:wd_mux|                         ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wd_mux                                                           ; work         ;
 ;          |mux2:wrmux|                          ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:wrmux                                                            ; work         ;
-;          |regfile:rf|                          ; 43 (43)           ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
-;       |forwarding:fw|                          ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|forwarding:fw                                                                     ; work         ;
+;          |regfile:rf|                          ; 39 (39)           ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|regfile:rf                                                            ; work         ;
+;          |sign_zero_ext:sze|                   ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|datapath:dp|sign_zero_ext:sze                                                     ; work         ;
+;       |forwarding:fw|                          ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|forwarding:fw                                                                     ; work         ;
 ;       |hazard_detection:hd|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|mips:mips_cpu|hazard_detection:hd                                                               ; work         ;
 ;    |ram2port_inst_data:Inst_Data_Mem|          ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|        ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_System|ram2port_inst_data:Inst_Data_Mem|altsyncram:altsyncram_component                                ; work         ;
@@ -722,82 +719,88 @@ Encoding Type:  One-Hot
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                   ;
-+------------------------------------------+-------------------------------------------+
-; Register name                            ; Reason for Removal                        ;
-+------------------------------------------+-------------------------------------------+
-; TimerCounter:Timer|StatusR[1..31]        ; Stuck at GND due to stuck port data_in    ;
-; GPIO:uGPIO|BUTTON_StatusR[3..9,13..31]   ; Merged with GPIO:uGPIO|BUTTON_StatusR[0]  ;
-; GPIO:uGPIO|BUTTON_StatusR[10,11]         ; Merged with GPIO:uGPIO|BUTTON_StatusR[12] ;
-; GPIO:uGPIO|SW_StatusR[10..24,27,29,30]   ; Merged with GPIO:uGPIO|SW_StatusR[31]     ;
-; GPIO:uGPIO|SW_StatusR[25,26]             ; Merged with GPIO:uGPIO|SW_StatusR[28]     ;
-; GPIO:uGPIO|BUTTON_StatusR[12]            ; Merged with GPIO:uGPIO|BUTTON_StatusR[0]  ;
-; GPIO:uGPIO|SW_StatusR[28]                ; Merged with GPIO:uGPIO|SW_StatusR[31]     ;
-; GPIO:uGPIO|BUTTON_StatusR[0]             ; Stuck at GND due to stuck port data_in    ;
-; GPIO:uGPIO|SW_StatusR[31]                ; Stuck at GND due to stuck port data_in    ;
-; GPIO:uGPIO|pulse_gen:sw9|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw9|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw9|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw9|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw7|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw7|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw7|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw7|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw6|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw6|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw6|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw6|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw5|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw5|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw5|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw5|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw4|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw4|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw4|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw4|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw3|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw3|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw3|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw3|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw2|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw2|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw2|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw2|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw1|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw1|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw1|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw1|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw0|c_state~2       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw0|c_state~3       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw0|c_state~4       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw0|c_state~5       ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button2|c_state~2   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button2|c_state~3   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button2|c_state~4   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button2|c_state~5   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button1|c_state~2   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button1|c_state~3   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button1|c_state~4   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button1|c_state~5   ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw9|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw8|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw7|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw6|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw5|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw4|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw3|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw2|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw1|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:sw0|c_state.S15     ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button2|c_state.S15 ; Lost fanout                               ;
-; GPIO:uGPIO|pulse_gen:button1|c_state.S15 ; Lost fanout                               ;
-; Total Number of Removed Registers = 143  ;                                           ;
-+------------------------------------------+-------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                        ;
++---------------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                           ; Reason for Removal                                              ;
++---------------------------------------------------------+-----------------------------------------------------------------+
+; TimerCounter:Timer|StatusR[1..31]                       ; Stuck at GND due to stuck port data_in                          ;
+; GPIO:uGPIO|BUTTON_StatusR[3..9,13..31]                  ; Merged with GPIO:uGPIO|BUTTON_StatusR[0]                        ;
+; GPIO:uGPIO|BUTTON_StatusR[10,11]                        ; Merged with GPIO:uGPIO|BUTTON_StatusR[12]                       ;
+; GPIO:uGPIO|SW_StatusR[10..24,27,29,30]                  ; Merged with GPIO:uGPIO|SW_StatusR[31]                           ;
+; GPIO:uGPIO|SW_StatusR[25,26]                            ; Merged with GPIO:uGPIO|SW_StatusR[28]                           ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[15]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[4]   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[14]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[3]   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[13]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[2]   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[12]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[1]   ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[11]     ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_inst_2|q[0]   ;
+; GPIO:uGPIO|BUTTON_StatusR[12]                           ; Merged with GPIO:uGPIO|BUTTON_StatusR[0]                        ;
+; GPIO:uGPIO|SW_StatusR[28]                               ; Merged with GPIO:uGPIO|SW_StatusR[31]                           ;
+; mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[17..31] ; Merged with mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm|q[16] ;
+; GPIO:uGPIO|BUTTON_StatusR[0]                            ; Stuck at GND due to stuck port data_in                          ;
+; GPIO:uGPIO|SW_StatusR[31]                               ; Stuck at GND due to stuck port data_in                          ;
+; GPIO:uGPIO|pulse_gen:sw9|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw9|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw9|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw9|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw7|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw7|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw7|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw7|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw6|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw6|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw6|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw6|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw5|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw5|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw5|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw5|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw4|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw4|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw4|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw4|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw3|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw3|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw3|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw3|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw2|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw2|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw2|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw2|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw1|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw1|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw1|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw1|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw0|c_state~2                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw0|c_state~3                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw0|c_state~4                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw0|c_state~5                      ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button2|c_state~2                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button2|c_state~3                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button2|c_state~4                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button2|c_state~5                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button1|c_state~2                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button1|c_state~3                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button1|c_state~4                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button1|c_state~5                  ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw9|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw8|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw7|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw6|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw5|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw4|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw3|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw2|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw1|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:sw0|c_state.S15                    ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button2|c_state.S15                ; Lost fanout                                                     ;
+; GPIO:uGPIO|pulse_gen:button1|c_state.S15                ; Lost fanout                                                     ;
+; Total Number of Removed Registers = 163                 ;                                                                 ;
++---------------------------------------------------------+-----------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -825,10 +828,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1687  ;
+; Total registers                              ; 1693  ;
 ; Number of registers using Synchronous Clear  ; 73    ;
 ; Number of registers using Synchronous Load   ; 29    ;
-; Number of registers using Asynchronous Clear ; 399   ;
+; Number of registers using Asynchronous Clear ; 405   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 1158  ;
 ; Number of registers using Preset             ; 0     ;
@@ -840,27 +843,26 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS_System|TimerCounter:Timer|CompareR[21]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |MIPS_System|TimerCounter:Timer|CompareR[20]                       ;
 ; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|LEDG_R[8]                                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg|q[0]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg|q[31]         ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg|q[9]          ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX0_R[6]                                  ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX1_R[6]                                  ;
-; 6:1                ; 22 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata|q[22] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX2_R[5]                                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg|q[30]         ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg|q[5]          ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX0_R[4]                                  ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX1_R[4]                                  ;
+; 6:1                ; 22 bits   ; 88 LEs        ; 44 LEs               ; 44 LEs                 ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata|q[25] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX2_R[6]                                  ;
 ; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd2|q[31]       ;
-; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1|q[31]       ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX3_R[3]                                  ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:ID_EX_rd1|q[25]       ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |MIPS_System|GPIO:uGPIO|HEX3_R[4]                                  ;
 ; 9:1                ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata|q[4]  ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|datapath:dp|flopr:MEM_WB_readdata|q[2]  ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |MIPS_System|mips:mips_cpu|controller:c|flopr:ID_EX_C_aluop|q[1]   ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|controller:c|aludec:ad|Mux1             ;
 ; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|alu:alu|Mux5                ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:MEM_WB_fwd_1|y[7]      ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[24]          ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[17]          ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[2]           ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[5]           ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |MIPS_System|mips:mips_cpu|datapath:dp|mux2:srcbmux|y[24]          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 
 
@@ -2192,15 +2194,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|flopr:ID_EX_signimm"                                                                         ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-; q    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (6 bits) it drives; bit(s) "q[31..6]" have no fanouts ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
-
-
 +----------------------------------------------------------------------+
 ; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|mux2:jr_pc_mux" ;
 +----------+-------+----------+----------------------------------------+
@@ -2228,24 +2221,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-----------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|shift_left_16:sl16"                                                                                              ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                     ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; a    ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "a[31..6]" will be connected to GND. ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|sl2:immsh"                                                                                                       ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                     ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; a    ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "a[31..6]" will be connected to GND. ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +--------------------------------------------------------------------+
 ; Port Connectivity Checks: "mips:mips_cpu|datapath:dp|adder:pcadd1" ;
 +----------+-------+----------+--------------------------------------+
@@ -2257,13 +2232,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+--------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mips:mips_cpu|datapath:dp"                                                                           ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                  ; Type   ; Severity ; Details                                                                             ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; IF_ID_inst_out[15..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:mips_cpu|datapath:dp"                                                                              ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                     ; Type   ; Severity ; Details                                                                             ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; IF_ID_inst_out[15..6]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ID_EX_signimm_out[31..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -2281,7 +2257,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -2291,7 +2267,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon Nov 27 22:08:40 2017
+    Info: Processing started: Tue Nov 28 19:23:04 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS_System -c MIPS_System
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/altera_mem_dual_port/ram2port_inst_data.v
@@ -2312,7 +2288,6 @@ Info (12021): Found 9 design units, including 9 entities, in source file /users/
     Info (12023): Found entity 7: flopr
     Info (12023): Found entity 8: flopenr
     Info (12023): Found entity 9: mux2
-Warning (10275): Verilog HDL Module Instantiation warning at mips.v(94): ignored dangling comma in List of Port Connections
 Info (12021): Found 7 design units, including 7 entities, in source file /users/user/desktop/git_milestone/cose_milestone/new_mips_design/mips_design/mips_system/mips_cpu/mips.v
     Info (12023): Found entity 1: mips
     Info (12023): Found entity 2: forwarding
@@ -2460,21 +2435,20 @@ Info (12128): Elaborating entity "Addr_Decoder" for hierarchy "Addr_Decoder:Deco
 Info (12128): Elaborating entity "TimerCounter" for hierarchy "TimerCounter:Timer"
 Info (12128): Elaborating entity "GPIO" for hierarchy "GPIO:uGPIO"
 Info (12128): Elaborating entity "pulse_gen" for hierarchy "GPIO:uGPIO|pulse_gen:button1"
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 60 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3644 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3654 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 38 output pins
-    Info (21061): Implemented 3559 logic cells
+    Info (21061): Implemented 3569 logic cells
     Info (21064): Implemented 32 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 547 megabytes
-    Info: Processing ended: Mon Nov 27 22:08:55 2017
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:14
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 551 megabytes
+    Info: Processing ended: Tue Nov 28 19:23:13 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 

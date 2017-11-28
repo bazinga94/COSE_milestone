@@ -29,7 +29,7 @@ module mips(input         clk, reset,
   wire		  stall;
   wire [1:0]  ForwardA, ForwardB, ForwardC;	
   wire [1:0]  aluop, hz_aluop;  
-  wire [5:0]  ID_EX_signimm_out;
+  wire [31:0]  ID_EX_signimm_out;
   
   // Instantiate Controller
   controller c(
@@ -37,7 +37,7 @@ module mips(input         clk, reset,
       .clk        (clk),
       .reset      (reset),
       .op         (IF_ID_inst_out[31:26]), 
-		.funct      (IF_ID_inst_out[5:0]),//errror!!
+		.funct      (IF_ID_inst_out[5:0]),     //errror!!
   // ###### jongho lee: End #######
 		.zero       (zero),
 		.signext    (signext),
@@ -52,7 +52,7 @@ module mips(input         clk, reset,
 		.aluop_in         (aluop),
 		.jump       (jump),
 		.alucontrol (alucontrol),
-		.ID_EX_signimm_out   (ID_EX_signimm_out));
+		.ID_EX_signimm_out   (ID_EX_signimm_out[5:0]));
 
   // Instantiate Datapath
   datapath dp(
@@ -90,7 +90,7 @@ module mips(input         clk, reset,
 	 .ForwardA	(ForwardA),
     .ForwardB	(ForwardB),
     .ForwardC	(ForwardC),
-	 .ID_EX_signimm_out   (ID_EX_signimm_out),
+	 .ID_EX_signimm_out   (ID_EX_signimm_out)
 	 );
 	       
 	 hazard_detection hd(
@@ -189,11 +189,11 @@ module controller(input        clk, reset,  //add clk, reset
                   output       jump,
                   output [2:0] alucontrol,
 						output [1:0] hz_aluop,
-						input [5:0] ID_EX_signimm_out);
+						input [5:0]  ID_EX_signimm_out);
 
   //wire [1:0] aluop;
   wire       branch;
-  wire[5:0] ID_EX_inst_3_out;
+  //wire[5:0] ID_EX_inst_3_out;
   wire [1:0] ID_EX_C_aluop_out;	
   maindec md(
     .op       (op),
@@ -210,7 +210,7 @@ module controller(input        clk, reset,  //add clk, reset
     .aluop    (hz_aluop));
 
   aludec ad( 
-    .funct      (ID_EX_signimm_out[5:0]),   // bit should pass ID_EX
+    .funct      (ID_EX_signimm_out),   // bit should pass ID_EX
     .aluop      (ID_EX_C_aluop_out),  //change input aluop
     .alucontrol (alucontrol));
 	 
@@ -329,7 +329,7 @@ module datapath(input         clk, reset,
 					 output EX_MEM_C_regwrite_out, MEM_WB_C_regwrite_out,		//for forwading
 				    output [4:0] MEM_WB_wrmux_out, ID_EX_inst_3_out, EX_MEM_wrmux_out,	//for forwarding
 					 input  [1:0]  ForwardA, ForwardB, ForwardC,  //reg problem???
-					 output [5:0] ID_EX_signimm_out  //to aludec
+					 output [31:0] ID_EX_signimm_out  //to aludec
 					 );
 
   wire [4:0]  writereg, wa_mux_result;

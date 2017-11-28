@@ -35,6 +35,6 @@ entity datapath is
         ForwardA        : in     vl_logic_vector(1 downto 0);
         ForwardB        : in     vl_logic_vector(1 downto 0);
         ForwardC        : in     vl_logic_vector(1 downto 0);
-        ID_EX_signimm_out: out    vl_logic_vector(5 downto 0)
+        ID_EX_signimm_out: out    vl_logic_vector(31 downto 0)
     );
 end datapath;

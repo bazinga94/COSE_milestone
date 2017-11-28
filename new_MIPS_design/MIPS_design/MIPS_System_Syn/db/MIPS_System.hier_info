@@ -657,6 +657,32 @@ ID_EX_signimm_out[2] <= ID_EX_signimm_out[2].DB_MAX_OUTPUT_PORT_TYPE
 ID_EX_signimm_out[3] <= ID_EX_signimm_out[3].DB_MAX_OUTPUT_PORT_TYPE
 ID_EX_signimm_out[4] <= ID_EX_signimm_out[4].DB_MAX_OUTPUT_PORT_TYPE
 ID_EX_signimm_out[5] <= ID_EX_signimm_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[6] <= ID_EX_signimm_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[7] <= ID_EX_signimm_out[7].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[8] <= ID_EX_signimm_out[8].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[9] <= ID_EX_signimm_out[9].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[10] <= ID_EX_signimm_out[10].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[11] <= ID_EX_signimm_out[11].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[12] <= ID_EX_signimm_out[12].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[13] <= ID_EX_signimm_out[13].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[14] <= ID_EX_signimm_out[14].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[15] <= ID_EX_signimm_out[15].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[16] <= ID_EX_signimm_out[16].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[17] <= ID_EX_signimm_out[17].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[18] <= ID_EX_signimm_out[18].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[19] <= ID_EX_signimm_out[19].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[20] <= ID_EX_signimm_out[20].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[21] <= ID_EX_signimm_out[21].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[22] <= ID_EX_signimm_out[22].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[23] <= ID_EX_signimm_out[23].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[24] <= ID_EX_signimm_out[24].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[25] <= ID_EX_signimm_out[25].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[26] <= ID_EX_signimm_out[26].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[27] <= ID_EX_signimm_out[27].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[28] <= ID_EX_signimm_out[28].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[29] <= ID_EX_signimm_out[29].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[30] <= ID_EX_signimm_out[30].DB_MAX_OUTPUT_PORT_TYPE
+ID_EX_signimm_out[31] <= ID_EX_signimm_out[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |MIPS_System|mips:mips_cpu|datapath:dp|flopenr:pcreg
