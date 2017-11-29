@@ -4,21 +4,21 @@ entity controller is
     port(
         clk             : in     vl_logic;
         reset           : in     vl_logic;
+        stall           : in     vl_logic;
         op              : in     vl_logic_vector(5 downto 0);
         funct           : in     vl_logic_vector(5 downto 0);
         zero            : in     vl_logic;
-        aluop_in        : in     vl_logic_vector(1 downto 0);
         signext         : out    vl_logic;
-        hz_shiftl16     : out    vl_logic;
-        hz_memtoreg     : out    vl_logic;
-        hz_memwrite     : out    vl_logic;
+        shiftl16        : out    vl_logic;
+        MEM_WB_memtoreg : out    vl_logic;
+        EX_MEM_memwrite : out    vl_logic;
         pcsrc           : out    vl_logic;
-        hz_alusrc       : out    vl_logic;
-        hz_regdst       : out    vl_logic;
-        hz_regwrite     : out    vl_logic;
+        ID_EX_alusrc    : out    vl_logic;
+        ID_EX_regdst    : out    vl_logic;
+        MEM_WB_regwrite : out    vl_logic;
         jump            : out    vl_logic;
         alucontrol      : out    vl_logic_vector(2 downto 0);
-        hz_aluop        : out    vl_logic_vector(1 downto 0);
-        ID_EX_signimm_out: in     vl_logic_vector(5 downto 0)
+        ID_EX_memtoreg  : out    vl_logic;
+        EX_MEM_regwrite : out    vl_logic
     );
 end controller;

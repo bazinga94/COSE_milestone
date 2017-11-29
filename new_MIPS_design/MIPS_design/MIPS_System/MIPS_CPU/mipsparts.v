@@ -296,3 +296,15 @@ module mux2 #(parameter WIDTH = 8)
   assign #`mydelay y = s ? d1 : d0; 
 
 endmodule
+
+
+//add mux 4 to 1!!!!!
+module mux4to1 #(parameter WIDTH = 8)
+             (input  [WIDTH-1:0] d0, d1, d2, d3, 
+              input        s0,
+				  input  		s1,  
+              output [WIDTH-1:0] y);
+
+  assign #`mydelay y = s1 ? (s0 ? d3 : d2) : (s0 ? d1 : d0); 
+
+endmodule
