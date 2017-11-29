@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "MIPS_System")
-  (DATE "11/30/2017 03:15:49")
+  (DATE "11/30/2017 03:24:53")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition")
@@ -880,7 +880,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[17\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[18\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1496:1496:1496) (1513:1513:1513))
@@ -1034,7 +1034,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[21\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[22\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1499:1499:1499) (1514:1514:1514))
@@ -3305,7 +3305,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[14\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[15\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1492:1492:1492) (1509:1509:1509))
@@ -3381,7 +3381,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[16\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[17\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1473:1473:1473) (1489:1489:1489))
@@ -8435,7 +8435,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[20\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[21\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1496:1496:1496) (1512:1512:1512))
@@ -8833,7 +8833,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[10\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[11\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1508:1508:1508))
@@ -8863,7 +8863,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[11\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[12\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1495:1495:1495))
@@ -8939,7 +8939,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[12\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[13\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1499:1499:1499) (1515:1515:1515))
@@ -10337,7 +10337,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[7\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[8\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1508:1508:1508))
@@ -10353,7 +10353,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[8\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[9\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1482:1482:1482) (1498:1498:1498))
@@ -12507,7 +12507,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[2\]\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[1\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1482:1482:1482) (1498:1498:1498))
@@ -12523,7 +12523,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[65\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[66\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1488:1488:1488) (1505:1505:1505))
@@ -15434,7 +15434,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[31\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[32\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1507:1507:1507))
@@ -18609,7 +18609,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[23\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[24\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1493:1493:1493) (1509:1509:1509))
@@ -20675,7 +20675,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[54\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[55\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1494:1494:1494) (1510:1510:1510))
@@ -20994,7 +20994,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[22\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[23\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1494:1494:1494) (1510:1510:1510))
@@ -21216,7 +21216,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[55\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[56\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -22158,7 +22158,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[57\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[58\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -22336,7 +22336,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[63\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[64\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -22600,7 +22600,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[64\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[65\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -22676,7 +22676,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[32\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[33\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1482:1482:1482) (1498:1498:1498))
@@ -26540,7 +26540,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[36\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[37\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1489:1489:1489) (1506:1506:1506))
@@ -27616,7 +27616,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[66\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[67\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -27679,7 +27679,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[67\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[68\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -27745,7 +27745,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[35\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[36\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1489:1489:1489) (1506:1506:1506))
@@ -27873,7 +27873,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[34\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[35\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1485:1485:1485) (1501:1501:1501))
@@ -36747,7 +36747,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[37\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[38\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -39067,7 +39067,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[0\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[0\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -39612,7 +39612,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[38\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[39\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -39735,7 +39735,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[6\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[7\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1495:1495:1495) (1510:1510:1510))
@@ -40566,7 +40566,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[52\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[53\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1494:1494:1494) (1510:1510:1510))
@@ -43911,7 +43911,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[60\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[61\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -43987,7 +43987,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[28\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[29\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1507:1507:1507))
@@ -44910,7 +44910,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[56\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[57\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -44956,7 +44956,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[24\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[25\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1490:1490:1490) (1507:1507:1507))
@@ -47060,7 +47060,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[59\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[60\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -47136,7 +47136,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[27\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[28\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1492:1492:1492) (1510:1510:1510))
@@ -48466,7 +48466,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[62\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[63\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -48635,7 +48635,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[30\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[31\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1507:1507:1507))
@@ -49125,7 +49125,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[51\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[52\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1494:1494:1494) (1510:1510:1510))
@@ -49294,7 +49294,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[19\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[20\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1499:1499:1499) (1515:1515:1515))
@@ -49375,7 +49375,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[18\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[19\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1474:1474:1474) (1490:1490:1490))
@@ -49500,7 +49500,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[58\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[59\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1488:1488:1488) (1505:1505:1505))
@@ -49669,7 +49669,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[26\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[27\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1488:1488:1488) (1505:1505:1505))
@@ -49750,7 +49750,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[25\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[26\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1493:1493:1493) (1509:1509:1509))
@@ -50708,7 +50708,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[48\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[49\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1473:1473:1473) (1489:1489:1489))
@@ -50823,7 +50823,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[13\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[14\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1499:1499:1499) (1515:1515:1515))
@@ -50887,7 +50887,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[0\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[1\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1485:1485:1485) (1500:1500:1500))
@@ -51322,7 +51322,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[15\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[16\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1495:1495:1495))
@@ -51525,7 +51525,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[47\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[48\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -52087,7 +52087,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[43\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[44\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -52161,7 +52161,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[1\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[2\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1485:1485:1485) (1500:1500:1500))
@@ -52332,7 +52332,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[42\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[43\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -52884,7 +52884,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[45\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[46\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -54714,7 +54714,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[44\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[45\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -55495,7 +55495,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[46\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[47\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -55728,7 +55728,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[53\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[54\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1494:1494:1494) (1510:1510:1510))
@@ -56537,7 +56537,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[40\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[41\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1478:1478:1478) (1496:1496:1496))
@@ -56611,7 +56611,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[3\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[4\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1486:1486:1486) (1501:1501:1501))
@@ -57585,7 +57585,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[41\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[42\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1473:1473:1473) (1489:1489:1489))
@@ -58224,7 +58224,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[9\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[10\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1491:1491:1491) (1508:1508:1508))
@@ -58396,7 +58396,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[50\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[51\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1474:1474:1474) (1490:1490:1490))
@@ -59848,7 +59848,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[39\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[40\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -59984,7 +59984,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[2\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[3\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1485:1485:1485) (1500:1500:1500))
@@ -60106,7 +60106,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[33\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[34\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1495:1495:1495) (1510:1510:1510))
@@ -60234,7 +60234,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[61\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[62\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1487:1487:1487) (1504:1504:1504))
@@ -60310,7 +60310,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[29\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[30\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1482:1482:1482) (1498:1498:1498))
@@ -60408,7 +60408,7 @@
   )
   (CELL
     (CELLTYPE "cycloneiii_lcell_comb")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[1\]\~feeder\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[0\]\~feeder\\)
     (DELAY
       (ABSOLUTE
         (PORT datad (683:683:683) (738:738:738))
@@ -60418,7 +60418,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[1\]\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[0\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1486:1486:1486) (1501:1501:1501))
@@ -60606,7 +60606,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[49\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[50\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1474:1474:1474) (1490:1490:1490))
@@ -61138,7 +61138,7 @@
   )
   (CELL
     (CELLTYPE "cycloneiii_lcell_comb")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[4\]\~feeder\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[3\]\~feeder\\)
     (DELAY
       (ABSOLUTE
         (PORT datad (226:226:226) (298:298:298))
@@ -61148,7 +61148,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[4\]\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[3\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1485:1485:1485) (1499:1499:1499))
@@ -64150,7 +64150,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[68\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[69\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1479:1479:1479) (1496:1496:1496))
@@ -64330,7 +64330,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[3\]\\)
+    (INSTANCE \\mips_cpu\|c\|EX_MEM\|q\[2\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1482:1482:1482) (1498:1498:1498))
@@ -64420,7 +64420,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[4\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[5\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1486:1486:1486) (1501:1501:1501))
@@ -64555,7 +64555,7 @@
   )
   (CELL
     (CELLTYPE "dffeas")
-    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[5\]\\)
+    (INSTANCE \\mips_cpu\|dp\|EX_MEM\|q\[6\]\\)
     (DELAY
       (ABSOLUTE
         (PORT clk (1495:1495:1495) (1510:1510:1510))

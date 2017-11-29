@@ -65,7 +65,7 @@ module mips(input         clk, reset,
     .regwrite   (regwrite),
     .jump       (jump),
     .alucontrol (alucontrol),
-    .zero       (zero),  //zero out, to controler
+    .EX_MEM_zero       (zero),  //zero out, to controler
     .pc         (pc),
     .instr      (instr),
     .EX_MEM_aluout     (memaddr), 
@@ -189,7 +189,7 @@ module controller(input clk, reset, stall,     //add clk, reset
   wire [5:0] ID_EX_funct;
   wire [1:0] ID_EX_aluop;
   wire EX_MEM_memtoreg, EX_MEM_branch; //EX_MEM_regwrite
-  wire EX_MEM_zero;
+  //wire EX_MEM_zero;
   
   
   mux2 #(8) hazard (
@@ -204,11 +204,11 @@ module controller(input clk, reset, stall,     //add clk, reset
     .d  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, funct}),
     .q  ({ID_EX_memtoreg, ID_EX_memwrite, ID_EX_branch, ID_EX_alusrc, ID_EX_regdst, ID_EX_regwrite, ID_EX_aluop, ID_EX_funct}));
 	 
-  flopr #(5) EX_MEM (
+  flopr #(4) EX_MEM (
     .clk (clk),
 	 .reset (reset),
-	 .d  ({ID_EX_memtoreg, ID_EX_memwrite, ID_EX_branch, ID_EX_regwrite, zero}),
-	 .q  ({EX_MEM_memtoreg, EX_MEM_memwrite, EX_MEM_branch, EX_MEM_regwrite, EX_MEM_zero}));
+	 .d  ({ID_EX_memtoreg, ID_EX_memwrite, ID_EX_branch, ID_EX_regwrite}),
+	 .q  ({EX_MEM_memtoreg, EX_MEM_memwrite, EX_MEM_branch, EX_MEM_regwrite}));
 	 
   flopr #(2) MEM_WB (
     .clk (clk),
@@ -240,7 +240,7 @@ module controller(input clk, reset, stall,     //add clk, reset
     .aluop      (ID_EX_aluop), 
     .alucontrol (alucontrol));
 
-  assign pcsrc = op[0] ? (EX_MEM_branch & ~EX_MEM_zero) : (EX_MEM_branch & EX_MEM_zero); //bne!!!!!! beq -> op[0]=0, bne -> op[0]=1
+  assign pcsrc = op[0] ? (EX_MEM_branch & ~zero) : (EX_MEM_branch & zero); //bne!!!!!! beq -> op[0]=0, bne -> op[0]=1
   
 endmodule
 
@@ -314,7 +314,7 @@ module datapath(input         clk, reset,
                 input         alusrc, regdst,
                 input         regwrite, jump,
                 input  [2:0]  alucontrol,
-                output        zero,
+                output        EX_MEM_zero,
                 output [31:0] pc,
                 input  [31:0] instr,
                 output [31:0] EX_MEM_aluout, EX_MEM_writedata,
@@ -481,11 +481,11 @@ module datapath(input         clk, reset,
 	 .d     (IF_ID_pcplus4_out),
 	 .q     (ID_EX_pcplus4_out));
 	 
-	 flopr #(69) EX_MEM(    
+	 flopr #(70) EX_MEM(    
     .clk   (clk),
     .reset (reset),
-    .d     ({aluout, fwd_writedata2, writereg}),  //zero!!!!!!!!!!!
-    .q     ({EX_MEM_aluout, EX_MEM_writedata, EX_MEM_writereg}));
+    .d     ({aluout, fwd_writedata2, writereg, zero}),  //zero!!!!!!!!!!!
+    .q     ({EX_MEM_aluout, EX_MEM_writedata, EX_MEM_writereg, EX_MEM_zero}));
 	 
 	 flopr #(69) MEM_WB(
     .clk   (clk),
@@ -522,14 +522,4 @@ module datapath(input         clk, reset,
     .s0 (ForwardD[0]),
 	 .s1 (ForwardD[1]),
     .y  (fwd_writedata2));
-	 
-	 
-	 
-	 
-	 
-	 
- 
-	 
-	 
-	 
 endmodule
