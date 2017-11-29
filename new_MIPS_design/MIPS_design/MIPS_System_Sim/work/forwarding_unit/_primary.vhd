@@ -10,8 +10,9 @@ entity forwarding_unit is
         ID_EX_rt        : in     vl_logic_vector(4 downto 0);
         EX_MEM_writereg : in     vl_logic_vector(4 downto 0);
         MEM_WB_writereg : in     vl_logic_vector(4 downto 0);
-        ForwardA        : out    vl_logic_vector(1 downto 0);
-        ForwardB        : out    vl_logic_vector(1 downto 0);
-        ForwardC        : out    vl_logic_vector(1 downto 0)
+        ForwardC        : out    vl_logic_vector(1 downto 0);
+        ForwardD        : out    vl_logic_vector(1 downto 0);
+        ForwardA        : out    vl_logic;
+        ForwardB        : out    vl_logic
     );
 end forwarding_unit;
