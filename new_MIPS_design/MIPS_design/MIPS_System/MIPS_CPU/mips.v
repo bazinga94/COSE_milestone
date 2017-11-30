@@ -21,6 +21,7 @@ module mips(input         clk, reset,
   wire        alusrc, regdst, regwrite, jump;
   wire [2:0]  alucontrol;
   //add new wire
+
   wire 		  stall;
   wire ID_EX_memtoreg;
   wire [4:0] ID_EX_rs, ID_EX_rt, IF_ID_rs, IF_ID_rt;
@@ -29,12 +30,17 @@ module mips(input         clk, reset,
   wire ForwardA, ForwardB;
   wire [4:0] EX_MEM_writereg, MEM_WB_writereg;
   wire [31:0] IF_ID_instr;
-
+   // ###### Jongho Lee: Start ####### 
+  wire flush;
+   // ###### Jongho Lee: End ####### 
   // Instantiate Controller
   controller c(
+  
     .stall     (stall),
+	 .flush     (flush),		//add flush!!!
     .clk       (clk),
 	 .reset     (reset),		//add clk, reset, stall
+
     .op         (IF_ID_instr[31:26]), 
 		.funct      (IF_ID_instr[5:0]), 
 		.zero       (zero),
@@ -53,6 +59,7 @@ module mips(input         clk, reset,
 
   // Instantiate Datapath
   datapath dp(
+    .flush      (flush),   //add flush
     .stall      (stall),   //add stall
     .clk        (clk),
     .reset      (reset),
@@ -71,7 +78,7 @@ module mips(input         clk, reset,
     .EX_MEM_aluout     (memaddr), 
     .EX_MEM_writedata  (memwritedata),
     .readdata   (memreaddata),
-	  
+	
 	 .IF_ID_instr (IF_ID_instr),
 	 .IF_ID_rs   (IF_ID_rs), 
 	 .IF_ID_rt   (IF_ID_rt), 
@@ -83,14 +90,17 @@ module mips(input         clk, reset,
 	 .ForwardD   (ForwardD),
 	 .EX_MEM_writereg (EX_MEM_writereg), 
 	 .MEM_WB_writereg (MEM_WB_writereg));
-	 
+	
 	hazard_detection hz (
 	.reset      (reset),
 	.stall      (stall),
 	.ID_EX_memtoreg  (ID_EX_memtoreg),
 	.IF_ID_rs   (IF_ID_rs), 
 	.IF_ID_rt   (IF_ID_rt), 
-	.ID_EX_rt   (ID_EX_rt));
+	.ID_EX_rt   (ID_EX_rt),
+	.flush      (flush),
+	.jump       (jump),
+	.pcsrc      (pcsrc));
 	
 	forwarding_unit fwd (
 	.EX_MEM_regwrite  (EX_MEM_regwrite),
@@ -148,23 +158,41 @@ module hazard_detection (
 								input reset,
 								input ID_EX_memtoreg,  //if LW -> memtoreg = 1
 								input [4:0] ID_EX_rt,  IF_ID_rs, IF_ID_rt,
-								output reg stall 
+								 // ###### Jongho Lee: Start ####### 
+								input pcsrc, jump,
+								 // ###### Jongho Lee: End ####### 
+								output reg stall, 
+								 // ###### Jongho Lee: Start ####### 
+								output reg flush
+								 // ###### Jongho Lee: End ####### 
 								);
-  always @(*)
-  begin
+  always @(*) begin
   if (reset == 1)
    stall = 1'b0;
-  else if((ID_EX_memtoreg==1) & (IF_ID_rs== ID_EX_rt))
+  else if ((ID_EX_memtoreg==1) & (IF_ID_rs == ID_EX_rt))
 	stall = 1'b1;
   else if ((ID_EX_memtoreg==1) & (IF_ID_rt == ID_EX_rt))
 	stall = 1'b1;
-  else
+  else 
 	stall = 1'b0;
   end
+   // ###### Jongho Lee: Start ####### 
+  always @(*) begin
+  if (reset == 1)
+   flush = 1'b0;
+  if (pcsrc | jump)
+   flush = 1'b1;
+  else
+	flush = 1'b0;
+  end
+   // ###### Jongho Lee: End ####### 
 endmodule
 
-module controller(input clk, reset, stall,     //add clk, reset
 
+
+module controller( // ###### Jongho Lee: Start ####### 
+						input clk, reset, stall, flush,    //add clk, reset
+						 // ###### Jongho Lee: End ####### 
 						input  [5:0] op, funct,
                   input        zero,
                   output       signext,
@@ -182,7 +210,7 @@ module controller(input clk, reset, stall,     //add clk, reset
 
   wire [1:0] aluop;
   wire       branch;
-  
+
   wire [1:0] hz_aluop;
   wire hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite;
   wire ID_EX_memwrite, ID_EX_branch, ID_EX_regwrite;  //ID_EX_memtoreg no wire???
@@ -191,13 +219,13 @@ module controller(input clk, reset, stall,     //add clk, reset
   wire EX_MEM_memtoreg, EX_MEM_branch; //EX_MEM_regwrite
   //wire EX_MEM_zero;
   
-  
-  mux2 #(8) hazard (
-    .d0 ({memtoreg, memwrite, branch, alusrc, regdst, regwrite, aluop}),
-    .d1 (8'b0),
-    .s  (stall),
-    .y  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop}));
-	 
+   // ###### Jongho Lee: Start ####### 
+  mux2 #(10) hazard (
+    .d0 ({memtoreg, memwrite, branch, alusrc, regdst, regwrite, aluop, jump, pcsrc}),
+    .d1 (10'b0),
+    .s  (stall | flush),
+    .y  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, hz_jump, hz_pcsrc}));
+	 // ###### Jongho Lee: End ####### 
   flopr #(14) ID_EX (
     .clk (clk),
     .reset (reset),
@@ -321,7 +349,9 @@ module datapath(input         clk, reset,
                 input  [31:0] readdata,
 					 //add
 					 output [4:0] IF_ID_rs, IF_ID_rt, ID_EX_rs, ID_EX_rt,
-					 input stall,
+					  // ###### Jongho Lee: Start ####### 
+					 input stall, flush,
+					  // ###### Jongho Lee: End ####### 
 					 input ForwardA, ForwardB,
 					 input [1:0] ForwardC, ForwardD,
 					 output [4:0] EX_MEM_writereg, MEM_WB_writereg,
@@ -334,6 +364,7 @@ module datapath(input         clk, reset,
   wire [31:0] result, jr_pc_result, wd_mux_result;
   wire        shift;
   wire [4:0] ra1_mux_result;
+ 
   wire [31:0] MEM_WB_readdata ,MEM_WB_aluout; //MEM_WB_writereg;
   wire [31:0] aluout; //EX_MEM_writedata; //EX_MEM_writereg, EX_MEM_aluout;
   wire [31:0] ID_EX_pcplus4_out;
@@ -344,18 +375,21 @@ module datapath(input         clk, reset,
   wire [31:0] fwd_srca2, fwd_writedata2;
   wire [4:0]  IF_ID_rd, ID_EX_rd;
   wire [31:0] writedata;
+  wire [31:0] pcnext_flush;
   
   assign IF_ID_rs = IF_ID_instr[25:21];
   assign IF_ID_rt = IF_ID_instr[20:16];
   assign IF_ID_rd = IF_ID_instr[15:11];
   
   // next PC logic
+   // ###### Jongho Lee: Start ####### 
   flopenr #(32) pcreg(
     .clk   (clk),
     .reset (reset),
 	 .en    (~stall),
-    .d     (pcnext),
+    .d     (pcnext_flush),
     .q     (pc));
+	// ###### Jongho Lee: Start ####### 
 
   adder pcadd1(
     .a (pc),
@@ -382,7 +416,14 @@ module datapath(input         clk, reset,
     .d1   (jr_pc_result),
     .s    (jump),
     .y    (pcnext));
-
+  
+   // ###### Jongho Lee: Start ####### 
+   mux2 #(32) pcmux_flush(  //add flush
+    .d0   (pcplus4),
+    .d1   (pcnext),
+    .s    (flush),
+    .y    (pcnext_flush));
+	 // ###### Jongho Lee: End ####### 
   // register file logic
   regfile rf(
     .clk     (clk),
@@ -455,13 +496,14 @@ module datapath(input         clk, reset,
     .s  (~IF_ID_instr[31] & ~IF_ID_instr[30] & ~IF_ID_instr[29] & ~IF_ID_instr[28] & ~IF_ID_instr[27] & ~IF_ID_instr[26] & ~IF_ID_instr[0] & ~IF_ID_instr[1] & ~IF_ID_instr[2] & IF_ID_instr[3] & ~IF_ID_instr[4] & ~IF_ID_instr[5]),
     .y  (jr_pc_result));  //after rd2
 	 
+	 // ###### Jongho Lee: Start ####### 
 	 flopenr #(32) IF_ID(
     .clk   (clk),
     .reset (reset),
     .en    (~stall),
-    .d     ({instr}),
+    .d     (flush ? 32'b0 : {instr}),
     .q     ({IF_ID_instr}));
-	 
+	  // ###### Jongho Lee: End ####### 
 	 flopenr #(32) IF_ID_pcplus4 (  //for j, branch
 	 .clk   (clk), 
 	 .reset (reset),
@@ -523,3 +565,4 @@ module datapath(input         clk, reset,
 	 .s1 (ForwardD[1]),
     .y  (fwd_writedata2));
 endmodule
+

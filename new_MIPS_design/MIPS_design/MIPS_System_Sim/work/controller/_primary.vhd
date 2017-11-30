@@ -5,6 +5,7 @@ entity controller is
         clk             : in     vl_logic;
         reset           : in     vl_logic;
         stall           : in     vl_logic;
+        flush           : in     vl_logic;
         op              : in     vl_logic_vector(5 downto 0);
         funct           : in     vl_logic_vector(5 downto 0);
         zero            : in     vl_logic;

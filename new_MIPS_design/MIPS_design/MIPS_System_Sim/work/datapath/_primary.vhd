@@ -13,7 +13,7 @@ entity datapath is
         regwrite        : in     vl_logic;
         jump            : in     vl_logic;
         alucontrol      : in     vl_logic_vector(2 downto 0);
-        zero            : out    vl_logic;
+        EX_MEM_zero     : out    vl_logic;
         pc              : out    vl_logic_vector(31 downto 0);
         instr           : in     vl_logic_vector(31 downto 0);
         EX_MEM_aluout   : out    vl_logic_vector(31 downto 0);
@@ -24,6 +24,7 @@ entity datapath is
         ID_EX_rs        : out    vl_logic_vector(4 downto 0);
         ID_EX_rt        : out    vl_logic_vector(4 downto 0);
         stall           : in     vl_logic;
+        flush           : in     vl_logic;
         ForwardA        : in     vl_logic;
         ForwardB        : in     vl_logic;
         ForwardC        : in     vl_logic_vector(1 downto 0);
