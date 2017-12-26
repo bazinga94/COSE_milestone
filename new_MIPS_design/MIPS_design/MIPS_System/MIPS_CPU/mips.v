@@ -53,9 +53,10 @@ module mips(input         clk, reset,
 		.ID_EX_regdst     (regdst),
 		.MEM_WB_regwrite   (regwrite),
 		.EX_MEM_regwrite   (EX_MEM_regwrite),
-		.jump       (jump),
+		.ID_EX_jump       (jump),
 		.alucontrol (alucontrol),
-		.ID_EX_memtoreg  (ID_EX_memtoreg));
+		.ID_EX_memtoreg  (ID_EX_memtoreg)
+		);
 
   // Instantiate Datapath
   datapath dp(
@@ -200,7 +201,7 @@ module controller( // ###### Jongho Lee: Start #######
                   output       MEM_WB_memtoreg, EX_MEM_memwrite,
                   output       pcsrc, ID_EX_alusrc,
                   output       ID_EX_regdst, MEM_WB_regwrite,
-                  output       jump,
+                  output       ID_EX_jump,
                   output [2:0] alucontrol,
 						// add
 						output ID_EX_memtoreg,
@@ -212,7 +213,7 @@ module controller( // ###### Jongho Lee: Start #######
   wire       branch;
 
   wire [1:0] hz_aluop;
-  wire hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite;
+  wire hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_jump;
   wire ID_EX_memwrite, ID_EX_branch, ID_EX_regwrite;  //ID_EX_memtoreg no wire???
   wire [5:0] ID_EX_funct;
   wire [1:0] ID_EX_aluop;
@@ -220,17 +221,17 @@ module controller( // ###### Jongho Lee: Start #######
   //wire EX_MEM_zero;
   
    // ###### Jongho Lee: Start ####### 
-  mux2 #(10) hazard (
-    .d0 ({memtoreg, memwrite, branch, alusrc, regdst, regwrite, aluop, jump, pcsrc}),
-    .d1 (10'b0),
+  mux2 #(9) hazard (
+    .d0 ({memtoreg, memwrite, branch, alusrc, regdst, regwrite, aluop, jump}),
+    .d1 (9'b0),
     .s  (stall | flush),
-    .y  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, hz_jump, hz_pcsrc}));
+    .y  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, hz_jump}));
 	 // ###### Jongho Lee: End ####### 
-  flopr #(14) ID_EX (
+  flopr #(15) ID_EX (
     .clk (clk),
     .reset (reset),
-    .d  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, funct}),
-    .q  ({ID_EX_memtoreg, ID_EX_memwrite, ID_EX_branch, ID_EX_alusrc, ID_EX_regdst, ID_EX_regwrite, ID_EX_aluop, ID_EX_funct}));
+    .d  ({hz_memtoreg, hz_memwrite, hz_branch, hz_alusrc, hz_regdst, hz_regwrite, hz_aluop, funct, hz_jump}),
+    .q  ({ID_EX_memtoreg, ID_EX_memwrite, ID_EX_branch, ID_EX_alusrc, ID_EX_regdst, ID_EX_regwrite, ID_EX_aluop, ID_EX_funct, ID_EX_jump}));
 	 
   flopr #(4) EX_MEM (
     .clk (clk),
@@ -264,6 +265,9 @@ module controller( // ###### Jongho Lee: Start #######
     .aluop    (aluop));
 
   aludec ad( 
+  // ###### Lee Jongho: Start ######
+    .op         (op),
+  // ###### Lee Jongho: End ######
     .funct      (ID_EX_funct),
     .aluop      (ID_EX_aluop), 
     .alucontrol (alucontrol));
@@ -292,7 +296,9 @@ module maindec(input  [5:0] op, funct,  //add funct to Distinguish jr
       6'b000000:
 		if (funct == 6'b001000)
 			controls <= #`mydelay 11'b00000000100;// JR
-      else
+      else if(funct == 6'b000000)
+			controls <= #`mydelay 11'b00000000000; // flush
+		else
 			controls <= #`mydelay 11'b00110000011; // Rtype
       6'b100011: controls <= #`mydelay 11'b10101001000; // LW
       6'b101011: controls <= #`mydelay 11'b10001010000; // SW
@@ -304,6 +310,9 @@ module maindec(input  [5:0] op, funct,  //add funct to Distinguish jr
       6'b001111: controls <= #`mydelay 11'b01101000000; // LUI
       6'b000010: controls <= #`mydelay 11'b00000000100; // J
 		6'b000011: controls <= #`mydelay 11'b00100000100; // JAL
+		// ###### Lee Jongho: Start ######
+		6'b001010: controls <= #`mydelay 11'b10101000011; // SLTI 
+		// ###### Lee Jongho: End ######
 		//6'b000000: controls <= #`mydelay 11'b00000000100; // JR 000000 already in case
       default:   controls <= #`mydelay 11'bxxxxxxxxxxx; // ???
     endcase
@@ -313,13 +322,20 @@ endmodule
 
 module aludec(input      [5:0] funct,
               input      [1:0] aluop,
-              output reg [2:0] alucontrol);
+              output reg [2:0] alucontrol,
+				  // ###### Lee Jongho: Start ######
+				  input      [5:0] op);
+				  // ###### Lee Jongho: End ######
 
   always @(*)
     case(aluop)
       2'b00: alucontrol <= #`mydelay 3'b010;  // add
       2'b01: alucontrol <= #`mydelay 3'b110;  // sub
       2'b10: alucontrol <= #`mydelay 3'b001;  // or
+		// ###### Lee Jongho: Start ######
+		default: case(op)
+			 6'b001010: alucontrol <= #`mydelay 3'b111; // SLTI
+			 // ###### Lee Jongho: End ######
       default: case(funct)          // RTYPE
           6'b100000,
           6'b100001: alucontrol <= #`mydelay 3'b010; // ADD, ADDU: only difference is exception
@@ -332,6 +348,9 @@ module aludec(input      [5:0] funct,
           default:   alucontrol <= #`mydelay 3'bxxx; // ???
         endcase
     endcase
+	 // ###### Lee Jongho: Start ######
+    endcase
+	 // ###### Lee Jongho: End ######
     
 endmodule
 
@@ -413,8 +432,8 @@ module datapath(input         clk, reset,
 
   mux2 #(32) pcmux(
     .d0   (pcnextbr),
-    .d1   (jr_pc_result),
-    .s    (jump),
+    .d1   (jr_pc_result),  //jump X, jr!!!
+    .s    (~IF_ID_instr[31] & ~IF_ID_instr[30] & ~IF_ID_instr[29] & ~IF_ID_instr[28] & ~IF_ID_instr[27] & ~IF_ID_instr[26] & ~IF_ID_instr[0] & ~IF_ID_instr[1] & ~IF_ID_instr[2] & IF_ID_instr[3] & ~IF_ID_instr[4] & ~IF_ID_instr[5]),
     .y    (pcnext));
   
    // ###### Jongho Lee: Start ####### 
@@ -491,7 +510,7 @@ module datapath(input         clk, reset,
     .y  (ra1_mux_result));  //after ra2
 	 
 	 mux2 #(32) jr_pc_mux(
-    .d0 ({IF_ID_pcplus4_out[31:28], IF_ID_instr[25:0], 2'b00}),
+    .d0 ({pcplus4[31:28], IF_ID_instr[25:0], 2'b00}),
     .d1 (writedata),
     .s  (~IF_ID_instr[31] & ~IF_ID_instr[30] & ~IF_ID_instr[29] & ~IF_ID_instr[28] & ~IF_ID_instr[27] & ~IF_ID_instr[26] & ~IF_ID_instr[0] & ~IF_ID_instr[1] & ~IF_ID_instr[2] & IF_ID_instr[3] & ~IF_ID_instr[4] & ~IF_ID_instr[5]),
     .y  (jr_pc_result));  //after rd2
